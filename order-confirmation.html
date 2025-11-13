@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - EJ Farm</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/language-switcher.css">
+    <link rel="stylesheet" href="styles/confirmation-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" data-key="nav.brand">EJ Farm</a></div>
+            <ul class="nav-menu">
+                <li><a href="storypage.html" data-key="nav.story">Our Story</a></li>
+                <li><a href="processpage.html" data-key="nav.process">Our Process</a></li>
+                <li><a href="collectionpage.html" data-key="nav.shop">Shop</a></li>
+                <li><a href="#testimonials" data-key="nav.reviews">Reviews</a></li>
+                <li><a href="collectionpage.html" class="nav-cta" data-key="nav.cta">Shop Coffee</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <!-- Language Switcher -->
+                <div class="lang-switcher-inline">
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect><path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path><path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path><path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path><path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path><rect x="13" y="4" width="6" height="24" fill="#fff"></rect><rect x="1" y="13" width="30" height="6" fill="#fff"></rect><rect x="14" y="4" width="4" height="24" fill="#b92932"></rect><rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect></svg>
+                    </button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="vi" title="Tiếng Việt">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#da251d"></rect><polygon points="16 11.373 17.075 14.465 20.389 14.465 17.657 16.443 18.732 19.535 16 17.557 13.268 19.535 14.343 16.443 11.611 14.465 14.925 14.465 16 11.373" fill="#ff0"></polygon></svg>
+                    </button>
+                </div>
+                <!-- Cart Icon -->
+                <a href="cart.html" class="cart-icon-btn" id="cartIconBtn" aria-label="Shopping cart" title="Shopping cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Confirmation Content -->
+    <main class="confirmation-page">
+        <div class="container">
+            <!-- Two Column Layout -->
+            <div class="confirmation-layout">
+                <!-- Left Column: Success Message & Customer Info -->
+                <div class="confirmation-message-section">
+                    <!-- Success Icon -->
+                    <div class="success-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+
+                    <!-- Success Headline -->
+                    <h1 class="success-title">Đặt hàng thành công!</h1>
+                    <p class="success-subtitle">Cảm ơn bạn đã đặt hàng tại EJ Farm</p>
+
+                    <!-- Order ID -->
+                    <div class="order-id-box">
+                        <span class="order-id-label">Mã đơn hàng:</span>
+                        <span class="order-id-value" id="conf-order-id">---</span>
+                    </div>
+
+                    <!-- Customer Information -->
+                    <div class="info-section">
+                        <h2 class="info-title">Thông tin đơn hàng</h2>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Họ và tên:</span>
+                                <span class="info-value" id="conf-customer-name">---</span>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-label">Số điện thoại:</span>
+                                <span class="info-value" id="conf-customer-phone">---</span>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-label">Email:</span>
+                                <span class="info-value" id="conf-customer-email">---</span>
+                            </div>
+
+                            <div class="info-item full-width">
+                                <span class="info-label">Địa chỉ giao hàng:</span>
+                                <span class="info-value" id="conf-customer-address">---</span>
+                            </div>
+
+                            <div class="info-item full-width">
+                                <span class="info-label">Phương thức thanh toán:</span>
+                                <span class="info-value payment-method" id="conf-payment-method">---</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="next-steps">
+                        <h3 class="next-steps-title">Bước tiếp theo</h3>
+                        <ul class="next-steps-list">
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Chúng tôi đã nhận được đơn hàng của bạn</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <span>Email xác nhận sẽ được gửi đến hộp thư của bạn</span>
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                                <span>Đơn hàng sẽ được giao trong 3-5 ngày làm việc</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="confirmation-actions">
+                        <a href="collectionpage.html" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Tiếp tục mua hàng
+                        </a>
+                        <a href="index.html" class="btn btn-secondary">Về trang chủ</a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Order Receipt -->
+                <div class="order-receipt-section">
+                    <div class="receipt-card">
+                        <h2 class="receipt-title">Chi tiết đơn hàng</h2>
+
+                        <!-- Order Items -->
+                        <div class="receipt-items" id="conf-order-summary-list">
+                            <!-- Items will be dynamically inserted here -->
+                        </div>
+
+                        <div class="receipt-divider"></div>
+
+                        <!-- Order Totals -->
+                        <div class="receipt-totals">
+                            <div class="receipt-row">
+                                <span class="receipt-label">Tạm tính</span>
+                                <span class="receipt-value" id="conf-subtotal">0₫</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Phí vận chuyển</span>
+                                <span class="receipt-value" id="conf-shipping">0₫</span>
+                            </div>
+                            <div class="receipt-divider"></div>
+                            <div class="receipt-row receipt-total">
+                                <span class="receipt-label">Tổng cộng</span>
+                                <span class="receipt-value receipt-total-price" id="conf-total-price">0₫</span>
+                            </div>
+                        </div>
+
+                        <!-- Support Info -->
+                        <div class="support-box">
+                            <h4 class="support-title">Cần hỗ trợ?</h4>
+                            <p class="support-text">Nếu bạn có bất kỳ câu hỏi nào về đơn hàng, vui lòng liên hệ với chúng tôi:</p>
+                            <div class="support-contacts">
+                                <div class="support-contact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                    <span>0901234567</span>
+                                </div>
+                                <div class="support-contact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    <span>support@ejfarm.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EJ Farm</h4>
+                    <p>Artisan coffee from Vietnam's highlands</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="collectionpage.html">Coffee</a></li>
+                        <li><a href="collectionpage.html">Chocolate</a></li>
+                        <li><a href="collectionpage.html">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="storypage.html">Our Story</a></li>
+                        <li><a href="processpage.html">Our Process</a></li>
+                        <li><a href="#">Our Farmers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EJ Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Scripts -->
+    <script src="scripts/translations-index.js"></script>
+    <script src="scripts/language-switcher-shared.js"></script>
+    <script src="scripts/cart-engine.js"></script>
+    <script src="scripts/cart-badge-updater.js"></script>
+    <script src="scripts/order-confirmation.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

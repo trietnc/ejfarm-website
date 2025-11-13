@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection - EJ Farm</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/collection-styles.css">
+    <link rel="stylesheet" href="styles/language-switcher.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand" data-key="nav.brand">EJ Farm</a>
+            <ul class="nav-menu">
+                <li><a href="storypage.html" data-key="nav.story">Our Story</a></li>
+                <li><a href="processpage.html" data-key="nav.process">Our Process</a></li>
+                <li><a href="collectionpage.html" data-key="nav.shop">Shop</a></li>
+                <li><a href="index.html#testimonials" data-key="nav.reviews">Reviews</a></li>
+                <li><a href="collectionpage.html" class="nav-cta" data-key="nav.cta">Shop Coffee</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <!-- Language Switcher -->
+                <div class="lang-switcher-inline">
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect><path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path><path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path><path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path><path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path><rect x="13" y="4" width="6" height="24" fill="#fff"></rect><rect x="1" y="13" width="30" height="6" fill="#fff"></rect><rect x="14" y="4" width="4" height="24" fill="#b92932"></rect><rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect></svg>
+                    </button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="vi" title="Tiếng Việt">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#da251d"></rect><polygon points="16 11.373 17.075 14.465 20.389 14.465 17.657 16.443 18.732 19.535 16 17.557 13.268 19.535 14.343 16.443 11.611 14.465 14.925 14.465 16 11.373" fill="#ff0"></polygon></svg>
+                    </button>
+                </div>
+                <!-- Cart Icon -->
+                <a href="cart.html" class="cart-icon-btn" id="cartIconBtn" aria-label="Shopping cart" title="Shopping cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Collection Header -->
+    <section class="collection-header">
+        <div class="container">
+            <h1 class="collection-headline" data-key="collection.header.headline">Our Collection</h1>
+            <p class="collection-subheadline" data-key="collection.header.subheadline">Hand-crafted in small batches from the volcanic highlands of Đắk Nông</p>
+        </div>
+    </section>
+
+    <!-- Product Filters -->
+    <section class="product-filters">
+        <div class="container">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" data-key="collection.filter.all">All</button>
+                <button class="filter-btn" data-filter="coffee" data-key="collection.filter.coffee">Coffee</button>
+                <button class="filter-btn" data-filter="chocolate" data-key="collection.filter.chocolate">Chocolate</button>
+                <button class="filter-btn" data-filter="gift-set" data-key="collection.filter.giftset">Gift Set</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="product-grid-section">
+        <div class="container">
+            <div class="product-grid-container" id="productGrid">
+                
+                <!-- Product Card 1 - Coffee -->
+                <div class="product-card-premium" data-category="coffee" data-product-id="1">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600" alt="Mo Nong Single Origin Coffee" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Mo Nong Coffee Lifestyle" class="card-image hover">
+                        <div class="card-badge bestseller" data-key="collection.badge.bestseller">Bestseller</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product1.title">Mo Nong Single Origin</h3>
+                        <p class="card-subtitle" data-key="collection.product1.subtitle">Tasting Notes: Dark Chocolate, Blackberry, Caramel</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">320,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 - Coffee -->
+                <div class="product-card-premium" data-category="coffee" data-product-id="2">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="Community Blend Coffee" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600" alt="Community Blend Lifestyle" class="card-image hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product2.title">Community Blend</h3>
+                        <p class="card-subtitle" data-key="collection.product2.subtitle">Balanced & Approachable - Perfect for Daily Ritual</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">280,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 - Coffee -->
+                <div class="product-card-premium" data-category="coffee" data-product-id="3">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600" alt="Highland Reserve Coffee" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600" alt="Highland Reserve Lifestyle" class="card-image hover">
+                        <div class="card-badge new" data-key="collection.badge.new">New</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product3.title">Highland Reserve</h3>
+                        <p class="card-subtitle" data-key="collection.product3.subtitle">Limited Edition - Honey Processed Arabica</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">380,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 - Chocolate -->
+                <div class="product-card-premium" data-category="chocolate" data-product-id="4">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=600" alt="Highland Cacao 70%" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1606312619070-d48b4cac5646?w=600" alt="Highland Cacao Lifestyle" class="card-image hover">
+                        <div class="card-badge bestseller" data-key="collection.badge.bestseller">Bestseller</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product4.title">Highland Cacao 70%</h3>
+                        <p class="card-subtitle" data-key="collection.product4.subtitle">Bean-to-Bar - Deep, Fruity with Coffee Blossom Notes</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">180,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 - Chocolate -->
+                <div class="product-card-premium" data-category="chocolate" data-product-id="5">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1610450949065-1f2841536c88?w=600" alt="Dark Chocolate 85%" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600" alt="Dark Chocolate Lifestyle" class="card-image hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product5.title">Volcanic Dark 85%</h3>
+                        <p class="card-subtitle" data-key="collection.product5.subtitle">Intense & Complex - For True Cacao Lovers</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">200,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 - Chocolate -->
+                <div class="product-card-premium" data-category="chocolate" data-product-id="6">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=600" alt="Milk Chocolate Bar" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1590442800900-b0c703a900bc?w=600" alt="Milk Chocolate Lifestyle" class="card-image hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product6.title">Creamy Highland Milk</h3>
+                        <p class="card-subtitle" data-key="collection.product6.subtitle">45% Cacao - Smooth & Balanced Sweetness</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">160,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 - Gift Set -->
+                <div class="product-card-premium" data-category="gift-set" data-product-id="7">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=600" alt="Highland Essentials Gift Set" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600" alt="Gift Set Lifestyle" class="card-image hover">
+                        <div class="card-badge new" data-key="collection.badge.new">New</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product7.title">Highland Essentials</h3>
+                        <p class="card-subtitle" data-key="collection.product7.subtitle">Coffee & Chocolate Pairing - Perfect Introduction</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">480,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="7">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 - Gift Set -->
+                <div class="product-card-premium" data-category="gift-set" data-product-id="8">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=600" alt="Premium Tasting Collection" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600" alt="Tasting Collection Lifestyle" class="card-image hover">
+                        <div class="card-badge bestseller" data-key="collection.badge.bestseller">Bestseller</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product8.title">Premium Tasting Collection</h3>
+                        <p class="card-subtitle" data-key="collection.product8.subtitle">Complete Experience - 3 Coffees + 3 Chocolates</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">880,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="8">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 9 - Gift Set -->
+                <div class="product-card-premium" data-category="gift-set" data-product-id="9">
+                    <div class="card-image-container">
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=600" alt="Corporate Gift Box" class="card-image default">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600" alt="Corporate Gift Lifestyle" class="card-image hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title" data-key="collection.product9.title">Heritage Gift Box</h3>
+                        <p class="card-subtitle" data-key="collection.product9.subtitle">Premium Corporate Gift - Beautifully Packaged</p>
+                        <div class="card-divider"></div>
+                        <p class="card-price">1,200,000₫</p>
+                        <button class="btn-add-to-cart" data-product-id="9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <img src="" alt="" id="modalImage">
+                </div>
+                <div class="modal-info-section">
+                    <div class="modal-badge" id="modalBadge"></div>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-subtitle" id="modalSubtitle"></p>
+                    <div class="modal-divider"></div>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-description" id="modalDescription" data-key="collection.modal.description">
+                        Experience the unique terroir of Đắk Nông's volcanic highlands. Each batch is carefully crafted to honor the land, the people, and centuries of farming tradition.
+                    </p>
+                    <div class="modal-details">
+                        <h4>Details</h4>
+                        <ul id="modalDetailsList">
+                            <li>100% traceable to Mo Nong Highlands</li>
+                            <li>Small-batch production</li>
+                            <li>Supports indigenous farming families</li>
+                            <li>Sustainable farming practices</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary modal-cta">Add to Cart</button>
+                        <button class="btn btn-outline modal-learn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EJ Farm</h4>
+                    <p>Artisan coffee and chocolate from the volcanic highlands of Vietnam.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="collectionpage.html">Coffee</a></li>
+                        <li><a href="collectionpage.html">Chocolate</a></li>
+                        <li><a href="collectionpage.html">Gift Sets</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="index.html#origin">Our Story</a></li>
+                        <li><a href="index.html#process">Our Process</a></li>
+                        <li><a href="#">Our Farmers</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="mailto:hello@ejfarm.vn">hello@ejfarm.vn</a></li>
+                        <li><a href="#">Visit Us</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EJ Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load translations and language switcher -->
+    <script src="scripts/translations-collection.js"></script>
+    <script src="scripts/language-switcher-shared.js"></script>
+    <script src="scripts/cart-engine.js"></script>
+    <script src="scripts/cart-badge-updater.js"></script>
+    <script src="scripts/collection-page-cart.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/collection-script.js"></script>
+</body>
+</html>

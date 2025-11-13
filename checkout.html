@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - EJ Farm</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/language-switcher.css">
+    <link rel="stylesheet" href="styles/checkout-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" data-key="nav.brand">EJ Farm</a></div>
+            <ul class="nav-menu">
+                <li><a href="storypage.html" data-key="nav.story">Our Story</a></li>
+                <li><a href="processpage.html" data-key="nav.process">Our Process</a></li>
+                <li><a href="collectionpage.html" data-key="nav.shop">Shop</a></li>
+                <li><a href="#testimonials" data-key="nav.reviews">Reviews</a></li>
+                <li><a href="collectionpage.html" class="nav-cta" data-key="nav.cta">Shop Coffee</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <!-- Language Switcher -->
+                <div class="lang-switcher-inline">
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect><path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path><path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path><path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path><path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path><rect x="13" y="4" width="6" height="24" fill="#fff"></rect><rect x="1" y="13" width="30" height="6" fill="#fff"></rect><rect x="14" y="4" width="4" height="24" fill="#b92932"></rect><rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect></svg>
+                    </button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="vi" title="Tiếng Việt">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#da251d"></rect><polygon points="16 11.373 17.075 14.465 20.389 14.465 17.657 16.443 18.732 19.535 16 17.557 13.268 19.535 14.343 16.443 11.611 14.465 14.925 14.465 16 11.373" fill="#ff0"></polygon></svg>
+                    </button>
+                </div>
+                <!-- Cart Icon -->
+                <a href="cart.html" class="cart-icon-btn" id="cartIconBtn" aria-label="Shopping cart" title="Shopping cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Page Content -->
+    <main class="checkout-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="checkout-header">
+                <h1 class="checkout-title">Checkout</h1>
+                <div class="checkout-steps">
+                    <span class="step completed">Cart</span>
+                    <span class="step-divider">→</span>
+                    <span class="step active">Information</span>
+                    <span class="step-divider">→</span>
+                    <span class="step">Complete</span>
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="checkout-layout">
+                <!-- Left Column: Checkout Form -->
+                <div class="checkout-form-section">
+                    <form id="checkoutForm" method="POST" action="https://formspree.io/f/xyzlzdqj">
+                        <!-- Customer Information -->
+                        <fieldset class="form-fieldset">
+                            <legend class="fieldset-title">Thông tin khách hàng</legend>
+                            
+                            <div class="form-group">
+                                <label for="customer-name" class="form-label">Họ và tên <span class="required">*</span></label>
+                                <input 
+                                    type="text" 
+                                    id="customer-name" 
+                                    name="name" 
+                                    class="form-input" 
+                                    placeholder="Nguyễn Văn A"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="customer-phone" class="form-label">Số điện thoại <span class="required">*</span></label>
+                                    <input 
+                                        type="tel" 
+                                        id="customer-phone" 
+                                        name="phone" 
+                                        class="form-input" 
+                                        placeholder="0901234567"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer-email" class="form-label">Email <span class="required">*</span></label>
+                                    <input 
+                                        type="email" 
+                                        id="customer-email" 
+                                        name="email" 
+                                        class="form-input" 
+                                        placeholder="example@email.com"
+                                        required
+                                    >
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Shipping Information -->
+                        <fieldset class="form-fieldset">
+                            <legend class="fieldset-title">Địa chỉ giao hàng</legend>
+                            
+                            <div class="form-group">
+                                <label for="customer-address" class="form-label">Địa chỉ <span class="required">*</span></label>
+                                <textarea 
+                                    id="customer-address" 
+                                    name="address" 
+                                    class="form-textarea" 
+                                    rows="3"
+                                    placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố"
+                                    required
+                                ></textarea>
+                                <small class="form-hint">Vui lòng nhập địa chỉ đầy đủ để đảm bảo giao hàng chính xác</small>
+                            </div>
+                        </fieldset>
+
+                        <!-- Payment Method -->
+                        <fieldset class="form-fieldset">
+                            <legend class="fieldset-title">Phương thức thanh toán</legend>
+                            
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input 
+                                        type="radio" 
+                                        name="payment-method" 
+                                        value="COD" 
+                                        id="payment_cod"
+                                        checked
+                                    >
+                                    <div class="payment-option-content">
+                                        <div class="payment-option-header">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                                            </svg>
+                                            <span class="payment-option-title">Thanh toán khi giao hàng (COD)</span>
+                                        </div>
+                                        <p class="payment-option-desc">Thanh toán bằng tiền mặt khi nhận hàng</p>
+                                    </div>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input 
+                                        type="radio" 
+                                        name="payment-method" 
+                                        value="Bank Transfer" 
+                                        id="payment_bank"
+                                    >
+                                    <div class="payment-option-content">
+                                        <div class="payment-option-header">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                            </svg>
+                                            <span class="payment-option-title">Chuyển khoản ngân hàng</span>
+                                        </div>
+                                        <p class="payment-option-desc">Chuyển khoản trước, giao hàng sau khi xác nhận</p>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Bank Transfer Info (Hidden by default) -->
+                            <div id="bank-info" class="bank-info" style="display: none;">
+                                <div class="bank-info-header">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                    <h4>Thông tin chuyển khoản</h4>
+                                </div>
+                                <div class="bank-details">
+                                    <div class="bank-detail-row">
+                                        <span class="bank-label">Ngân hàng:</span>
+                                        <span class="bank-value">Vietcombank</span>
+                                    </div>
+                                    <div class="bank-detail-row">
+                                        <span class="bank-label">Số tài khoản:</span>
+                                        <span class="bank-value">1234567890</span>
+                                    </div>
+                                    <div class="bank-detail-row">
+                                        <span class="bank-label">Chủ tài khoản:</span>
+                                        <span class="bank-value">NGUYEN VAN A</span>
+                                    </div>
+                                    <div class="bank-detail-row">
+                                        <span class="bank-label">Nội dung:</span>
+                                        <span class="bank-value">[Họ tên] - [Số điện thoại]</span>
+                                    </div>
+                                </div>
+                                <p class="bank-note">💡 Vui lòng chuyển khoản và giữ lại biên lai. Chúng tôi sẽ liên hệ xác nhận sau khi nhận được thanh toán.</p>
+                            </div>
+                        </fieldset>
+
+                        <!-- Hidden Inputs for Order Details -->
+                        <input type="hidden" name="Order Summary" id="hidden-order-summary">
+                        <input type="hidden" name="Final Total" id="hidden-final-total">
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-complete-order">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Hoàn tất đơn hàng
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Order Summary -->
+                <div class="order-summary-section">
+                    <div class="order-summary-card">
+                        <h2 class="summary-title">Đơn hàng của bạn</h2>
+
+                        <!-- Order Items List -->
+                        <div class="order-items" id="order-summary-list">
+                            <!-- Items will be dynamically inserted here -->
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <!-- Order Totals -->
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span class="total-label">Tạm tính</span>
+                                <span class="total-value" id="summary-subtotal">0₫</span>
+                            </div>
+                            <div class="total-row">
+                                <span class="total-label">Phí vận chuyển</span>
+                                <span class="total-value" id="summary-shipping">0₫</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="total-row total-final">
+                                <span class="total-label">Tổng cộng</span>
+                                <span class="total-value total-price" id="summary-total">0₫</span>
+                            </div>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="trust-badges">
+                            <div class="trust-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                                <span>Thanh toán an toàn</span>
+                            </div>
+                            <div class="trust-badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                                <span>Giao hàng nhanh chóng</span>
+                            </div>
+                        </div>
+
+                        <!-- Free Shipping Note -->
+                        <div class="shipping-note" id="shipping-note">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            <p>Miễn phí vận chuyển cho đơn hàng từ 500,000₫</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EJ Farm</h4>
+                    <p>Artisan coffee from Vietnam's highlands</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="collectionpage.html">Coffee</a></li>
+                        <li><a href="collectionpage.html">Chocolate</a></li>
+                        <li><a href="collectionpage.html">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="storypage.html">Our Story</a></li>
+                        <li><a href="processpage.html">Our Process</a></li>
+                        <li><a href="#">Our Farmers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EJ Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Scripts -->
+    <script src="scripts/translations-index.js"></script>
+    <script src="scripts/language-switcher-shared.js"></script>
+    <script src="scripts/cart-engine.js"></script>
+    <script src="scripts/cart-badge-updater.js"></script>
+    <script src="scripts/checkout.js?v=2.0"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+/* =====================================================
+   ORDER CONFIRMATION PAGE STYLES
+   Modern, reassuring design for post-order page
+   ===================================================== */
+
+/* Page Container */
+.confirmation-page {
+    min-height: 100vh;
+    padding: 3rem 0 4rem;
+    background: var(--bg-primary);
+}
+
+/* Two Column Layout */
+.confirmation-layout {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* =====================================================
+   LEFT COLUMN: SUCCESS MESSAGE & INFO
+   ===================================================== */
+
+.confirmation-message-section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-muted);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+}
+
+/* Success Icon */
+.success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(76, 140, 74, 0.1) 0%, rgba(76, 140, 74, 0.05) 100%);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    animation: successPulse 2s ease-in-out infinite;
+}
+
+.success-icon svg {
+    color: var(--accent-primary);
+    stroke-width: 2.5;
+}
+
+@keyframes successPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(76, 140, 74, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(76, 140, 74, 0);
+    }
+}
+
+/* Success Headline */
+.success-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+}
+
+.success-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin: 0 0 2rem;
+}
+
+/* Order ID Box */
+.order-id-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: rgba(76, 140, 74, 0.08);
+    border: 2px solid rgba(76, 140, 74, 0.2);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.order-id-label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.order-id-value {
+    font-family: var(--font-mono, monospace);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    letter-spacing: 0.05em;
+}
+
+/* Customer Information Section */
+.info-section {
+    text-align: left;
+    margin-bottom: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-muted);
+}
+
+.info-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-value {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+.info-value.payment-method {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+/* Next Steps Section */
+.next-steps {
+    text-align: left;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(76, 140, 74, 0.05);
+    border: 1px solid rgba(76, 140, 74, 0.15);
+    border-radius: 10px;
+}
+
+.next-steps-title {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+}
+
+.next-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.next-steps-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.next-steps-list li svg {
+    flex-shrink: 0;
+    color: var(--accent-primary);
+    margin-top: 0.125rem;
+}
+
+/* Action Buttons */
+.confirmation-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.confirmation-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.confirmation-actions .btn-primary {
+    background: var(--accent-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(76, 140, 74, 0.3);
+}
+
+.confirmation-actions .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 140, 74, 0.4);
+}
+
+.confirmation-actions .btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-muted);
+}
+
+.confirmation-actions .btn-secondary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+/* =====================================================
+   RIGHT COLUMN: ORDER RECEIPT
+   ===================================================== */
+
+.order-receipt-section {
+    position: sticky;
+    top: 2rem;
+}
+
+.receipt-card {
+    background: var(--bg-light, var(--bg-secondary));
+    border: 1px solid var(--border-muted);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.receipt-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 1.5rem;
+}
+
+/* Receipt Items */
+.receipt-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.receipt-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.receipt-item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-muted);
+    flex-shrink: 0;
+}
+
+.receipt-item-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.receipt-item-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.receipt-item-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.receipt-item-price {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+/* Receipt Divider */
+.receipt-divider {
+    height: 1px;
+    background: var(--border-muted);
+    margin: 1.5rem 0;
+}
+
+/* Receipt Totals */
+.receipt-totals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+.receipt-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.receipt-value {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.receipt-total {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.receipt-total .receipt-label {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.receipt-total-price {
+    color: var(--accent-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Support Box */
+.support-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(76, 140, 74, 0.05);
+    border: 1px solid rgba(76, 140, 74, 0.15);
+    border-radius: 10px;
+}
+
+.support-title {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+}
+
+.support-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+    line-height: 1.6;
+}
+
+.support-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.support-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.support-contact svg {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .confirmation-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .order-receipt-section {
+        position: static;
+        order: -1;
+    }
+
+    .confirmation-message-section {
+        padding: 2.5rem;
+    }
+
+    .receipt-card {
+        padding: 1.75rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .confirmation-page {
+        padding: 2rem 0 3rem;
+    }
+
+    .confirmation-message-section {
+        padding: 2rem;
+    }
+
+    .success-icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+    }
+
+    .success-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .success-title {
+        font-size: 2rem;
+    }
+
+    .success-subtitle {
+        font-size: 1rem;
+    }
+
+    .order-id-box {
+        padding: 0.875rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .order-id-value {
+        font-size: 1.1rem;
+    }
+
+    .info-section {
+        margin-bottom: 2rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .confirmation-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .confirmation-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .receipt-card {
+        padding: 1.5rem;
+    }
+
+    .receipt-title {
+        font-size: 1.3rem;
+    }
+
+    .receipt-item-image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirmation-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .confirmation-message-section {
+        padding: 1.5rem;
+    }
+
+    .success-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .success-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .success-title {
+        font-size: 1.75rem;
+    }
+
+    .info-title {
+        font-size: 1.2rem;
+    }
+
+    .receipt-card {
+        padding: 1.25rem;
+    }
+
+    .next-steps {
+        padding: 1.25rem;
+    }
+
+    .order-id-box {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+}
+
+/* =====================================================
+   DARK MODE SUPPORT
+   ===================================================== */
+
+[data-theme="dark"] .confirmation-message-section,
+[data-theme="dark"] .receipt-card {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .success-icon {
+    background: linear-gradient(135deg, rgba(76, 140, 74, 0.15) 0%, rgba(76, 140, 74, 0.08) 100%);
+}
+
+[data-theme="dark"] .confirmation-actions .btn-primary {
+    box-shadow: 0 4px 12px rgba(76, 140, 74, 0.4);
+}
+
+[data-theme="dark"] .confirmation-actions .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(76, 140, 74, 0.5);
+}

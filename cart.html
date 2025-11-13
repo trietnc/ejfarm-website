@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - EJ Farm</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/language-switcher.css">
+    <link rel="stylesheet" href="styles/cart-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" data-key="nav.brand">EJ Farm</a></div>
+            <ul class="nav-menu">
+                <li><a href="storypage.html" data-key="nav.story">Our Story</a></li>
+                <li><a href="processpage.html" data-key="nav.process">Our Process</a></li>
+                <li><a href="collectionpage.html" data-key="nav.shop">Shop</a></li>
+                <li><a href="#testimonials" data-key="nav.reviews">Reviews</a></li>
+                <li><a href="collectionpage.html" class="nav-cta" data-key="nav.cta">Shop Coffee</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <!-- Language Switcher -->
+                <div class="lang-switcher-inline">
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect><path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path><path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path><path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path><path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path><rect x="13" y="4" width="6" height="24" fill="#fff"></rect><rect x="1" y="13" width="30" height="6" fill="#fff"></rect><rect x="14" y="4" width="4" height="24" fill="#b92932"></rect><rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect></svg>
+                    </button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="vi" title="Tiếng Việt">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#da251d"></rect><polygon points="16 11.373 17.075 14.465 20.389 14.465 17.657 16.443 18.732 19.535 16 17.557 13.268 19.535 14.343 16.443 11.611 14.465 14.925 14.465 16 11.373" fill="#ff0"></polygon></svg>
+                    </button>
+                </div>
+                <!-- Cart Icon -->
+                <a href="cart.html" class="cart-icon-btn active" id="cartIconBtn" aria-label="Shopping cart" title="Shopping cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Page Content -->
+    <main class="cart-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="cart-header">
+                <h1 class="cart-title" data-key="cart.title">Shopping Cart</h1>
+                <a href="collectionpage.html" class="continue-shopping" data-key="cart.continueShopping">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Continue Shopping
+                </a>
+            </div>
+
+            <!-- Cart Content Area -->
+            <div class="cart-content">
+                <!-- Cart Items Section -->
+                <div class="cart-items-section">
+                    <!-- Empty Cart State (shown when cart is empty) -->
+                    <div class="empty-cart" id="emptyCartState">
+                        <div class="empty-cart-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </div>
+                        <h2 data-key="cart.empty.title">Your cart is empty</h2>
+                        <p data-key="cart.empty.message">Discover our artisan coffee and chocolate from Vietnam's highlands</p>
+                        <a href="collectionpage.html" class="btn btn-primary" data-key="cart.empty.btn">Browse Collection</a>
+                    </div>
+
+                    <!-- Cart Items Table (shown when cart has items) -->
+                    <div class="cart-items-table" id="cartItemsTable" style="display: none;">
+                        <div class="cart-table-header">
+                            <div class="header-product" data-key="cart.table.product">Product</div>
+                            <div class="header-price" data-key="cart.table.price">Price</div>
+                            <div class="header-quantity" data-key="cart.table.quantity">Quantity</div>
+                            <div class="header-total" data-key="cart.table.total">Total</div>
+                            <div class="header-remove"></div>
+                        </div>
+
+                        <!-- Cart items will be dynamically inserted here by JavaScript -->
+                        <div class="cart-table-body" id="cartTableBody">
+                            <!-- Example structure (will be generated by JS):
+                            <div class="cart-item" data-product-id="123">
+                                <div class="item-product">
+                                    <img src="..." alt="...">
+                                    <div class="item-details">
+                                        <h3>Product Name</h3>
+                                        <p class="item-variant">250g - Whole Bean</p>
+                                    </div>
+                                </div>
+                                <div class="item-price">200,000₫</div>
+                                <div class="item-quantity">
+                                    <input type="number" value="1" min="1" max="99">
+                                </div>
+                                <div class="item-total">200,000₫</div>
+                                <div class="item-remove">
+                                    <button class="remove-btn">×</button>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary Section -->
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <h2 class="summary-title" data-key="cart.summary.title">Order Summary</h2>
+                    
+                    <div class="summary-row">
+                        <span data-key="cart.summary.subtotal">Subtotal</span>
+                        <span class="summary-amount" id="summarySubtotal">0₫</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span data-key="cart.summary.shipping">Shipping</span>
+                        <span class="summary-amount summary-note" id="summaryShipping" data-key="cart.summary.shippingCalculated">Calculated at checkout</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row summary-total">
+                        <span data-key="cart.summary.total">Total</span>
+                        <span class="summary-amount summary-total-amount" id="summaryTotal">0₫</span>
+                    </div>
+
+                    <div class="summary-note-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <p data-key="cart.summary.freeShipping">Free shipping on orders over 500,000₫</p>
+                    </div>
+
+                    <button class="btn btn-primary btn-checkout" id="checkoutBtn" data-key="cart.checkout">
+                        Proceed to Checkout
+                    </button>
+
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <span data-key="cart.trust.secure">Secure checkout</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span data-key="cart.trust.delivery">Fast delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promotional Banner -->
+            <div class="promo-banner" id="promoBanner" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                </svg>
+                <p data-key="cart.promo.message">Add <strong id="promoAmountNeeded">100,000₫</strong> more to get free shipping!</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-key="footer.brand">EJ Farm</h4>
+                    <p data-key="footer.tagline">Artisan coffee from Vietnam's highlands</p>
+                </div>
+                <div class="footer-col">
+                    <h5 data-key="footer.shop.title">Shop</h5>
+                    <ul>
+                        <li><a href="collectionpage.html" data-key="footer.shop.coffee">Coffee</a></li>
+                        <li><a href="collectionpage.html" data-key="footer.shop.chocolate">Chocolate</a></li>
+                        <li><a href="collectionpage.html" data-key="footer.shop.bundles">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-key="footer.about.title">About</h5>
+                    <ul>
+                        <li><a href="storypage.html" data-key="footer.about.story">Our Story</a></li>
+                        <li><a href="processpage.html" data-key="footer.about.process">Our Process</a></li>
+                        <li><a href="#" data-key="footer.about.farmers">Our Farmers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5 data-key="footer.support.title">Support</h5>
+                    <ul>
+                        <li><a href="#" data-key="footer.support.contact">Contact Us</a></li>
+                        <li><a href="#" data-key="footer.support.shipping">Shipping Info</a></li>
+                        <li><a href="#" data-key="footer.support.returns">Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-key="footer.bottom">&copy; 2025 EJ Farm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Scripts -->
+    <script src="scripts/translations-index.js"></script>
+    <script src="scripts/language-switcher-shared.js"></script>
+    <script src="scripts/cart-engine.js"></script>
+    <script src="scripts/cart-badge-updater.js"></script>
+    <script src="scripts/cart-page.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
