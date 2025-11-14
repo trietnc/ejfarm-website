@@ -12,7 +12,7 @@ const translations = {
         'nav.story': 'Our Story',
         'nav.process': 'Our Process',
         'nav.shop': 'Shop',
-        'nav.reviews': 'Reviews',
+        'nav.blogs': 'Blogs',
         'nav.cta': 'Shop Coffee',
         
         // Hero Section
@@ -107,8 +107,8 @@ const translations = {
         'nav.brand': 'EJ Farm',
         'nav.story': 'Câu Chuyện',
         'nav.process': 'Quy Trình',
-        'nav.shop': 'Mua Hàng',
-        'nav.reviews': 'Đánh Giá',
+        'nav.shop': 'Cửa Hàng',
+        'nav.blogs': 'Blog',
         'nav.cta': 'Mua Cà Phê',
         
         // Hero Section

@@ -199,6 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const product = productData[productId];
         
         if (product) {
+            // Store product ID in modal for later use
+            modal.setAttribute('data-current-product-id', productId);
+            
             // Populate modal with product data
             modalImage.src = product.image;
             modalImage.alt = product.title;
@@ -253,9 +256,66 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (modalCtaButton) {
         modalCtaButton.addEventListener('click', function() {
-            const productTitle = modalTitle.textContent;
-            console.log(`Add to Cart clicked: ${productTitle}`);
-            alert(`"${productTitle}" added to cart! (Cart functionality coming soon)`);
+            // Get product ID from modal's data attribute
+            const productId = modal.getAttribute('data-current-product-id');
+            
+            if (!productId) {
+                console.error('Product ID not found in modal');
+                return;
+            }
+            
+            // Get product data
+            const product = productData[productId];
+            if (!product) {
+                console.error('Product data not found for ID:', productId);
+                return;
+            }
+            
+            // Add to cart using EJC_Cart with correct format
+            if (typeof EJC_Cart !== 'undefined') {
+                // Create product object matching cart engine requirements
+                const cartProduct = {
+                    id: productId,
+                    title: product.title,
+                    subtitle: product.subtitle,
+                    price: product.price,
+                    image: product.image,
+                    category: product.category
+                };
+                
+                // Add to cart
+                const addedItem = EJC_Cart.addItem(cartProduct, 1);
+                
+                if (addedItem) {
+                    // Visual feedback - change button state
+                    const originalText = modalCtaButton.textContent;
+                    modalCtaButton.textContent = 'Added!';
+                    modalCtaButton.style.background = '#10b981';
+                    modalCtaButton.disabled = true;
+                    modalCtaButton.style.cursor = 'default';
+                    
+                    console.log(`✅ Added to cart: ${product.title} (ID: ${productId})`);
+                    
+                    // Close modal after 1.5 seconds
+                    setTimeout(() => {
+                        closeModal();
+                        
+                        // Reset button state after modal closes
+                        setTimeout(() => {
+                            modalCtaButton.textContent = originalText;
+                            modalCtaButton.style.background = '';
+                            modalCtaButton.disabled = false;
+                            modalCtaButton.style.cursor = 'pointer';
+                        }, 300);
+                    }, 1500);
+                } else {
+                    console.error('Failed to add item to cart');
+                    alert('Failed to add item. Please try again.');
+                }
+            } else {
+                console.error('EJC_Cart is not defined');
+                alert('Cart system is not loaded. Please refresh the page.');
+            }
         });
     }
     

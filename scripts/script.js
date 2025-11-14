@@ -303,6 +303,90 @@ const debouncedScroll = debounce(updateScrollProgress, 10);
 window.addEventListener('scroll', debouncedScroll);
 
 // ===================================
+// CONTACT MODAL FUNCTIONALITY
+// ===================================
+
+const floatingContactBtn = document.getElementById('floating-contact-btn');
+const contactModal = document.getElementById('contact-modal');
+const contactModalClose = document.querySelector('.contact-modal-close');
+const contactModalOverlay = document.querySelector('.contact-modal-overlay');
+
+if (floatingContactBtn && contactModal) {
+    // Open contact modal
+    floatingContactBtn.addEventListener('click', () => {
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Contact modal opened');
+    });
+
+    // Close contact modal
+    const closeContactModal = () => {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('Contact modal closed');
+    };
+
+    if (contactModalClose) {
+        contactModalClose.addEventListener('click', closeContactModal);
+    }
+
+    if (contactModalOverlay) {
+        contactModalOverlay.addEventListener('click', closeContactModal);
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+            closeContactModal();
+        }
+    });
+}
+
+// ===================================
+// IMMERSIVE HOMEPAGE MENU
+// ===================================
+
+const immersiveMenuBtn = document.getElementById('immersive-menu-btn');
+const fullscreenMenu = document.getElementById('fullscreen-menu');
+const fullscreenMenuClose = document.getElementById('fullscreen-menu-close');
+
+if (immersiveMenuBtn && fullscreenMenu) {
+    // Open fullscreen menu
+    immersiveMenuBtn.addEventListener('click', () => {
+        fullscreenMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Fullscreen menu opened');
+    });
+
+    // Close fullscreen menu
+    const closeFullscreenMenu = () => {
+        fullscreenMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('Fullscreen menu closed');
+    };
+
+    if (fullscreenMenuClose) {
+        fullscreenMenuClose.addEventListener('click', closeFullscreenMenu);
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && fullscreenMenu.classList.contains('active')) {
+            closeFullscreenMenu();
+        }
+    });
+
+    // Close menu when clicking on a link
+    const fullscreenMenuLinks = fullscreenMenu.querySelectorAll('.fullscreen-menu-link, .fullscreen-contact-link');
+    fullscreenMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Delay closing slightly for better UX
+            setTimeout(closeFullscreenMenu, 300);
+        });
+    });
+}
+
+// ===================================
 // CONSOLE BRANDING (Optional)
 // ===================================
 
