@@ -42,11 +42,12 @@ initializeTheme();
 
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
+const navRightGroup = document.querySelector('.nav-right-group');
 const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger) {
+if (hamburger && navRightGroup) {
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        navRightGroup.classList.toggle('active');
         hamburger.classList.toggle('active');
     });
 }
@@ -55,26 +56,39 @@ if (hamburger) {
 const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+        if (navRightGroup) {
+            navRightGroup.classList.remove('active');
+        }
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
     });
 });
 
-// Navbar scroll effect
-let lastScroll = 0;
+// Navbar scroll effect with hiding behavior
+let lastScrollY = window.scrollY;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    const currentScrollY = window.scrollY;
+    
+    // Hide navbar when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past threshold
+        navbar.classList.add('navbar-hidden');
+    } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        navbar.classList.remove('navbar-hidden');
+    }
     
     // Add shadow when scrolled
-    if (currentScroll > 50) {
+    if (currentScrollY > 50) {
         navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
     } else {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
     
-    lastScroll = currentScroll;
+    lastScrollY = currentScrollY;
 });
 
 // ===================================

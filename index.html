@@ -1,324 +1,337 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EJ Farm - Artisan Coffee & Chocolate from Vietnam's Mo Nong Highlands</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/language-switcher.css">
+    <title>EJ Farm - Born of Volcanic Soil</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/language-switcher.css">
+    <link rel="stylesheet" href="styles/homepage-cinematic.css">
 </head>
-<body class="homepage">
-    <!-- Immersive Hamburger Menu Button -->
-    <button class="immersive-menu-btn" id="immersive-menu-btn" aria-label="Open menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="index.html" data-key="nav.brand">EJ Farm</a></div>
+            <div class="nav-right-group">
+                <ul class="nav-menu">
+                    <li><a href="storypage.html" data-key="nav.story">Our Story</a></li>
+                    <li><a href="processpage.html" data-key="nav.process">Process</a></li>
+                    <li><a href="collectionpage.html" data-key="nav.shop">Shop</a></li>
+                    <li><a href="blog.html" data-key="nav.blogs">Blogs</a></li>
+                    <li><a href="collectionpage.html" class="nav-cta" data-key="nav.cta">Shop Coffee</a></li>
+                </ul>
+                <div class="nav-icon-group">
+                    <!-- Language Switcher -->
+                    <div class="lang-switcher-inline">
+                    <button class="lang-btn" data-lang="en" title="English">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect><path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path><path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path><path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path><path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path><rect x="13" y="4" width="6" height="24" fill="#fff"></rect><rect x="1" y="13" width="30" height="6" fill="#fff"></rect><rect x="14" y="4" width="4" height="24" fill="#b92932"></rect><rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect></svg>
+                    </button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="vi" title="Tiếng Việt">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#da251d"></rect><polygon points="16 11.373 17.075 14.465 20.389 14.465 17.657 16.443 18.732 19.535 16 17.557 13.268 19.535 14.343 16.443 11.611 14.465 14.925 14.465 16 11.373" fill="#ff0"></polygon></svg>
+                    </button>
+                </div>
+                <!-- Cart Icon -->
+                <a href="cart.html" class="cart-icon-btn" id="cartIconBtn" aria-label="Shopping cart" title="Shopping cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Full-Screen Overlay Menu -->
-    <div class="fullscreen-menu" id="fullscreen-menu">
-        <button class="fullscreen-menu-close" id="fullscreen-menu-close" aria-label="Close menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        <nav class="fullscreen-menu-nav">
-            <a href="storypage.html" class="fullscreen-menu-link" data-key="nav.story">Our Story</a>
-            <a href="processpage.html" class="fullscreen-menu-link" data-key="nav.process">Our Process</a>
-            <a href="collectionpage.html" class="fullscreen-menu-link" data-key="nav.shop">Shop</a>
-            <a href="blog.html" class="fullscreen-menu-link" data-key="nav.blogs">Blogs</a>
+    <!-- SCENE 1: The Hero -->
+    <section id="hero-scene-1" class="scene hero-scene">
+        <!-- Video Container -->
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="images/ejfarm-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
+        
+        <!-- Bottom-Left Container: Headline -->
+        <div class="hero-headline-container">
+            <h1 class="hero-headline fade-in-element">Born from the Đắk Nông soil</h1>
+        </div>
+        
+        <!-- Bottom-Right Container: CTA Button -->
+        <div class="hero-cta-container">
+            <a href="collectionpage.html" class="btn btn-primary fade-in-element">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- SCENE 2: The Community (Split-Screen Immersive) -->
+    <section id="community-scene-2" class="scene community-scene-immersive">
+        <div class="community-split-container">
+            <!-- Left Side: Image Collage -->
+            <div class="community-visual-side">
+                <div class="community-image-primary">
+                    <div class="image-overlay-dark"></div>
+                </div>
+                <div class="community-accent-text">Đắk Nông</div>
+            </div>
             
-            <hr class="fullscreen-menu-divider">
+            <!-- Right Side: Content -->
+            <div class="community-content-side">
+                <div class="community-content-inner">
+                    <span class="community-label">Our Heritage</span>
+                    <h2 class="community-title">Rooted in<br>Community</h2>
+                    <div class="community-divider"></div>
+                    <p class="community-text">
+                        Every bean carries the dedication of our farmers, nurtured by generations 
+                        of knowledge and the rich volcanic terroir of the Central Highlands.
+                    </p>
+                    <p class="community-text">
+                        From family farms to your cup, we honor the hands that make our craft possible.
+                    </p>
+                    <a href="storypage.html" class="community-link">Discover Our Story →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCENE 3: The Process (Cinematic Journey) -->
+    <section id="process-scene-new" class="scene process-scene-cinematic">
+        <div class="process-sticky-header">
+            <h2 class="process-cinematic-title">From Soil to Cup</h2>
+            <p class="process-cinematic-subtitle">A journey of craftsmanship in three acts</p>
+        </div>
+        
+        <div class="process-journey-container">
+            <!-- Act 1: Harvest -->
+            <div class="process-act" data-act="1">
+                <div class="process-act-visual">
+                    <img src="images/product-harvesting.webp" alt="Coffee Harvest" class="process-act-image">
+                    <div class="process-act-overlay"></div>
+                </div>
+                <div class="process-act-content">
+                    <span class="process-act-number">01</span>
+                    <h3 class="process-act-title">Harvest</h3>
+                    <p class="process-act-description">
+                        Hand-selected at peak ripeness, each cherry is carefully picked from our 
+                        highland farms where volcanic soil enriches every bean.
+                    </p>
+                </div>
+            </div>
             
-            <div class="fullscreen-menu-contact">
-                <h3 class="fullscreen-menu-contact-title">Liên hệ / Contact</h3>
-                <a href="https://zalo.me/0905747745" class="fullscreen-contact-link" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-                    <span>Chat qua Zalo</span>
-                </a>
-                <a href="tel:0905747745" class="fullscreen-contact-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>Gọi trực tiếp: 0905747745</span>
-                </a>
-                <a href="mailto:trietnct@gmail.com" class="fullscreen-contact-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <span>Gửi Email</span>
-                </a>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Section 1: Hero -->
-    <section class="hero" id="hero">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-headline" data-key="hero.headline">Where Vietnam's Ancient Highlands Meet Artisan Craft</h1>
-            <h2 class="hero-subheadline" data-key="hero.subheadline">From the volcanic soil of Đắk Nông's Mo Nong Highlands to your cup—discover coffee and chocolate born of tradition, community, and exceptional terroir.</h2>
-            <div class="hero-cta-group">
-                <a href="collectionpage.html" class="btn btn-primary" data-key="hero.btn.primary">Shop Our Coffee</a>
-                <a href="storypage.html" class="btn btn-secondary discover-button" data-key="hero.btn.secondary">Discover Our Story</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
-
-    <!-- Section 2: Social Proof -->
-    <section class="social-proof">
-        <div class="container">
-            <h3 class="social-proof-headline" data-key="social.headline">Trusted by Connoisseurs & Communities Alike</h3>
-            <div class="social-proof-grid">
-                <div class="social-proof-item">
-                    <div class="proof-icon">⭐⭐⭐⭐⭐</div>
-                    <p data-key="social.rating">4.9/5 from 1,200+ customers</p>
+            <!-- Act 2: Roast -->
+            <div class="process-act" data-act="2">
+                <div class="process-act-visual">
+                    <img src="images/10.jpg" alt="Coffee Roasting" class="process-act-image">
+                    <div class="process-act-overlay"></div>
                 </div>
-                <div class="social-proof-item">
-                    <div class="proof-icon">📰</div>
-                    <p data-key="social.featured">Featured in Vietnam's top culinary publications</p>
+                <div class="process-act-content">
+                    <span class="process-act-number">02</span>
+                    <h3 class="process-act-title">Roast</h3>
+                    <p class="process-act-description">
+                        Small-batch roasting brings out the unique characteristics of our beans, 
+                        carefully developing flavors that honor their origin.
+                    </p>
                 </div>
-                <div class="social-proof-item">
-                    <div class="proof-icon">🤝</div>
-                    <p data-key="social.impact">Supporting 50+ indigenous farming families</p>
+            </div>
+            
+            <!-- Act 3: Craft -->
+            <div class="process-act" data-act="3">
+                <div class="process-act-visual">
+                    <img src="images/product-1.png" alt="Coffee Crafting" class="process-act-image">
+                    <div class="process-act-overlay"></div>
+                </div>
+                <div class="process-act-content">
+                    <span class="process-act-number">03</span>
+                    <h3 class="process-act-title">Craft</h3>
+                    <p class="process-act-description">
+                        Meticulously packaged to preserve freshness and quality, delivering 
+                        the essence of Đắk Nông directly to your table.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Our Origin -->
-    <section class="origin" id="origin">
-        <div class="container">
-            <div class="origin-content">
-                <div class="origin-text">
-                    <h2 class="section-headline" data-key="origin.headline">Born from Volcanic Earth, Nurtured by Generations</h2>
-                    <h3 class="section-subheadline" data-key="origin.subheadline">The Secret of Cao Nguyên Mo Nong</h3>
-                    <div class="origin-body">
-                        <p data-key="origin.p1">Deep in Vietnam's Đắk Nông province lies Cao Nguyên Mo Nong—the Mo Nong Highlands—where volcanic basalt soil, formed over millennia, creates something extraordinary. This rare terroir, rich in minerals and perfectly drained, yields coffee beans and cacao with a depth of flavor found nowhere else on earth.</p>
-                        
-                        <p class="emphasis" data-key="origin.p2">But great coffee isn't just about soil. It's about people.</p>
-                        
-                        <p data-key="origin.p3">For generations, indigenous ethnic communities have been the stewards of this land. We work hand-in-hand with these farmers—not as suppliers, but as partners—honoring their traditional knowledge while building sustainable livelihoods. Every bean we source tells a story of place, of heritage, and of the hands that tended it.</p>
-                        
-                        <p class="emphasis" data-key="origin.p4">This is where excellence begins: in the earth, and in community.</p>
-                    </div>
-                    <a href="#" class="btn btn-outline" data-key="origin.btn">Meet Our Farmers</a>
+    <!-- SCENE 4: The Products (Immersive Showcase) -->
+    <section id="product-scene-4" class="scene product-scene-immersive">
+        <div class="product-showcase-header">
+            <h2 class="product-showcase-title">The Collection</h2>
+            <p class="product-showcase-subtitle">Handcrafted excellence from volcanic highlands</p>
+        </div>
+        
+        <div class="product-showcase-grid">
+            <!-- Product 1: Featured Large -->
+            <div class="product-showcase-item featured">
+                <div class="product-showcase-visual">
+                    <img src="images/product-1.png" alt="Mo Nong Single Origin" class="product-showcase-image">
+                    <div class="product-showcase-overlay"></div>
                 </div>
-                <div class="origin-visual">
-                    <div class="origin-image">
-                        <img src="images/product-people.webp" alt="Farmer holding rich volcanic soil" />
+                <div class="product-showcase-content">
+                    <span class="product-label">Single Origin</span>
+                    <h3 class="product-name">Mo Nong</h3>
+                    <p class="product-tagline">Volcanic terroir in every sip</p>
+                    <div class="product-details">
+                        <span class="product-detail-item">Notes: Chocolate, Caramel</span>
+                        <span class="product-detail-item">Medium Roast</span>
                     </div>
-                    <div class="origin-map">
-                        <div class="map-marker">
-                            <span class="marker-pin">📍</span>
-                            <span class="marker-label" data-key="origin.location">Đắk Nông Province</span>
-                        </div>
+                    <a href="collectionpage.html" class="product-btn">Discover</a>
+                </div>
+            </div>
+            
+            <!-- Product 2: Standard -->
+            <div class="product-showcase-item">
+                <div class="product-showcase-visual">
+                    <img src="images/product-2.png" alt="Community Blend" class="product-showcase-image">
+                    <div class="product-showcase-overlay"></div>
+                </div>
+                <div class="product-showcase-content">
+                    <span class="product-label">House Blend</span>
+                    <h3 class="product-name">Community</h3>
+                    <p class="product-tagline">Balanced. Bold. Beautiful.</p>
+                    <div class="product-details">
+                        <span class="product-detail-item">Notes: Nutty, Smooth</span>
+                        <span class="product-detail-item">Dark Roast</span>
                     </div>
+                    <a href="collectionpage.html" class="product-btn">Discover</a>
+                </div>
+            </div>
+            
+            <!-- Product 3: Standard -->
+            <div class="product-showcase-item">
+                <div class="product-showcase-visual">
+                    <img src="images/product-3.png" alt="Highland Reserve" class="product-showcase-image">
+                    <div class="product-showcase-overlay"></div>
+                </div>
+                <div class="product-showcase-content">
+                    <span class="product-label">Limited Edition</span>
+                    <h3 class="product-name">Highland Reserve</h3>
+                    <p class="product-tagline">Exclusive small-batch perfection</p>
+                    <div class="product-details">
+                        <span class="product-detail-item">Notes: Floral, Citrus</span>
+                        <span class="product-detail-item">Light Roast</span>
+                    </div>
+                    <a href="collectionpage.html" class="product-btn">Discover</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Section 4: Our Process -->
-    <section class="process" id="process">
-        <div class="container">
-            <h2 class="section-headline center" data-key="process.headline">From Bean to Cup, From Community to You</h2>
-            <div class="process-grid">
-                <div class="process-step" data-step="1">
-                    <div class="step-background"></div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M32 8C20 8 12 16 12 28C12 36 16 42 22 46L22 52C22 54.2 23.8 56 26 56L38 56C40.2 56 42 54.2 42 52L42 46C48 42 52 36 52 28C52 16 44 8 32 8Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <path d="M22 28C22 22 26 18 32 18C38 18 42 22 42 28" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title" data-key="process.step1.title">Sustainable Cultivation</h3>
-                    <p class="step-text" data-key="process.step1.text">Our partner communities use traditional farming methods passed down through generations, working in harmony with the forest ecosystem. No shortcuts. No chemicals. Just patient care and volcanic soil doing what it does best.</p>
-                </div>
-                
-                <div class="process-step" data-step="2">
-                    <div class="step-background"></div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="44" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="32" cy="44" r="8" stroke="currentColor" stroke-width="2"/>
-                            <path d="M26 28L28 36M38 28L36 36M20 32L32 38M44 32L32 38" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title" data-key="process.step2.title">Collective Harvest</h3>
-                    <p class="step-text" data-key="process.step2.text">Harvesting is a celebration—families gather during peak season, selecting only the ripest cherries by hand. This is where "sức mạnh tập thể" (the strength of community) transforms individual effort into shared success.</p>
-                </div>
-                
-                <div class="process-step" data-step="3">
-                    <div class="step-background"></div>
-                    <div class="step-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="12" y="20" width="40" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
-                            <path d="M20 28L32 36L44 28" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="32" cy="36" r="4" fill="currentColor"/>
-                            <path d="M16 16L32 8L48 16" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title" data-key="process.step3.title">Artisan Craft</h3>
-                    <p class="step-text" data-key="process.step3.text">We control every step from bean to cup and bean to bar. Small-batch roasting. Precision tempering. Each product is crafted with the care it took to grow it, preserving the unique character of Mo Nong's terroir.</p>
-                </div>
-            </div>
+        
+        <div class="product-showcase-footer">
+            <a href="collectionpage.html" class="view-all-products">View Full Collection →</a>
         </div>
     </section>
 
-    <!-- Section 5: Featured Collection -->
-    <section class="collection" id="collection">
-        <div class="container">
-            <h2 class="section-headline center" data-key="collection.headline">Taste the Highlands</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600" alt="Mo Nong Single Origin Coffee" />
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title" data-key="collection.product1.title">Mo Nong Single Origin</h3>
-                        <p class="product-description" data-key="collection.product1.desc">Our signature coffee: notes of dark chocolate, blackberry, and caramel, with the mineral complexity only basalt soil can provide. Medium roast, exceptional balance.</p>
-                        <a href="collectionpage.html" class="product-cta" data-key="collection.product1.cta">Shop Now →</a>
-                    </div>
-                </div>
-                
-                <div class="product-card featured">
-                    <div class="product-badge" data-key="collection.product2.badge">Most Popular</div>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=600" alt="Highland Cacao Chocolate Bar" />
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title" data-key="collection.product2.title">Highland Cacao 70%</h3>
-                        <p class="product-description" data-key="collection.product2.desc">Bean-to-bar chocolate crafted from cacao grown in the same volcanic soil as our coffee. Deep, fruity, with whispers of coffee blossom.</p>
-                        <a href="collectionpage.html" class="product-cta" data-key="collection.product2.cta">Shop Now →</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600" alt="Community Blend Coffee" />
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title" data-key="collection.product3.title">Community Blend</h3>
-                        <p class="product-description" data-key="collection.product3.desc">A celebration of collective harvest—balanced, approachable, perfect for daily ritual. Every bag directly supports our farming partners.</p>
-                        <a href="collectionpage.html" class="product-cta" data-key="collection.product3.cta">Shop Now →</a>
-                    </div>
-                </div>
-            </div>
-            <div class="collection-footer">
-                <a href="#" class="link-secondary" data-key="collection.footer">View Full Collection →</a>
-            </div>
+    <!-- SCENE 5: Testimonial (Social Proof) -->
+    <section id="testimonial-scene-5" class="scene testimonial-scene">
+        <div class="testimonial-background"></div>
+        <div class="testimonial-overlay"></div>
+        
+        <div class="testimonial-content">
+            <h2 class="testimonial-quote fade-in-element">
+                "A new standard for Vietnamese specialty coffee."
+            </h2>
+            <p class="testimonial-attribution fade-in-element">
+                — Minh Đức Trần, Ăn Magazine
+            </p>
         </div>
     </section>
 
-    <!-- Section 6: Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-headline center" data-key="testimonials.headline">What Others Are Discovering</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card critic">
-                    <div class="quote-mark">"</div>
-                    <blockquote class="testimonial-quote" data-key="testimonials.critic.quote">
-                        EJ Farm represents a new standard for Vietnamese specialty coffee. The volcanic terroir of Mo Nong is evident in every sip—complex, vibrant, unforgettable. This is coffee with a sense of place, crafted with genuine reverence for origin and process.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <strong data-key="testimonials.critic.name">Minh Đức Trần</strong>
-                        <span data-key="testimonials.critic.title">Senior Food Critic, <em>Ăn Magazine</em></span>
-                    </div>
-                    <div class="publication-badge" data-key="testimonials.critic.badge">Featured Review</div>
-                </div>
-                
-                <div class="testimonial-card customer">
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                    <blockquote class="testimonial-quote" data-key="testimonials.customer.quote">
-                        I've tried specialty coffee from around the world, but nothing compares to this. You can actually taste the difference—the depth, the smoothness. Knowing it supports farming communities makes every cup even better.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SN</div>
-                        <div>
-                            <strong data-key="testimonials.customer.name">Sarah Nguyen</strong>
-                            <span data-key="testimonials.customer.location">Hanoi</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonials-footer">
-                <a href="#" class="link-secondary" data-key="testimonials.footer">Read More Reviews →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: Final CTA -->
-    <section class="final-cta" id="cta">
-        <div class="cta-background"></div>
-        <div class="cta-overlay"></div>
-        <div class="cta-content">
-            <h2 class="cta-headline" data-key="cta.headline">Your Journey to Mo Nong Begins Here</h2>
-            <p class="cta-subheadline" data-key="cta.subheadline">Experience coffee and chocolate that honor the land, the people, and the craft. Every purchase supports sustainable livelihoods and preserves traditional farming wisdom.</p>
-            <a href="collectionpage.html" class="btn btn-cta-large" data-key="cta.btn">Shop Coffee Collection</a>
-            <div class="trust-badges">
-                <span class="badge" data-key="cta.badge1">Free shipping over 500k VNĐ</span>
-                <span class="badge-divider">|</span>
-                <span class="badge" data-key="cta.badge2">30-day satisfaction guarantee</span>
-                <span class="badge-divider">|</span>
-                <span class="badge" data-key="cta.badge3">Direct farmer impact</span>
-            </div>
+    <!-- SCENE 6: Finale (Cinematic CTA) -->
+    <section id="finale-scene-6" class="scene finale-scene">
+        <video class="finale-video" autoplay loop muted playsinline>
+            <source src="images/video-homepage.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <div class="finale-overlay"></div>
+        
+        <div class="finale-content">
+            <h2 class="finale-headline fade-in-element">Taste the Journey</h2>
+            <a href="collectionpage.html" class="finale-cta-button fade-in-element">Shop Now</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
+    <footer class="cinematic-footer">
+        <div class="footer-container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h4 data-key="nav.brand">EJ Farm</h4>
-                    <p data-key="footer.brand.desc">Artisan coffee and chocolate from the volcanic highlands of Vietnam.</p>
+                <div class="footer-col footer-brand">
+                    <h4 class="footer-logo">EJ Farm</h4>
+                    <p class="footer-tagline">Volcanic terroir. Artisan craft. Born of community.</p>
                 </div>
+                
                 <div class="footer-col">
-                    <h5 data-key="footer.shop.title">Shop</h5>
-                    <ul>
-                        <li><a href="#" data-key="footer.shop.coffee">Coffee</a></li>
-                        <li><a href="#" data-key="footer.shop.chocolate">Chocolate</a></li>
-                        <li><a href="#" data-key="footer.shop.gifts">Gift Sets</a></li>
-                        <li><a href="#" data-key="footer.shop.subscriptions">Subscriptions</a></li>
+                    <h5 class="footer-heading">Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="storypage.html">Our Story</a></li>
+                        <li><a href="processpage.html">The Process</a></li>
+                        <li><a href="collectionpage.html">Collection</a></li>
+                        <li><a href="blog.html">Journal</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h5 data-key="footer.about.title">About</h5>
-                    <ul>
-                        <li><a href="storypage.html" data-key="footer.about.story">Our Story</a></li>
-                        <li><a href="processpage.html" data-key="footer.about.process">Our Process</a></li>
-                        <li><a href="#" data-key="footer.about.farmers">Our Farmers</a></li>
-                        <li><a href="#" data-key="footer.about.sustainability">Sustainability</a></li>
+                    <h5 class="footer-heading">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-col">
-                    <h5 data-key="footer.contact.title">Contact</h5>
-                    <ul>
+                    <h5 class="footer-heading">Connect</h5>
+                    <ul class="footer-links">
                         <li><a href="mailto:hello@ejfarm.vn">hello@ejfarm.vn</a></li>
-                        <li><a href="#" data-key="footer.contact.visit">Visit Us</a></li>
-                        <li><a href="#" data-key="footer.contact.wholesale">Wholesale</a></li>
+                        <li><a href="tel:0905747745">090 574 7745</a></li>
+                        <li><a href="https://zalo.me/0905747745" target="_blank" rel="noopener noreferrer">Zalo</a></li>
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p data-key="footer.bottom">&copy; 2025 EJ Farm. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2025 EJ Farm. All rights reserved.</p>
+                <div class="footer-language-switcher">
+                    <button class="footer-lang-btn" data-lang="en">EN</button>
+                    <span class="footer-lang-divider">|</span>
+                    <button class="footer-lang-btn" data-lang="vi">VI</button>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Load translations and language switcher -->
-    <script src="scripts/translations-index.js"></script>
-    <script src="scripts/language-switcher-shared.js"></script>
-    <script src="scripts/cart-engine.js"></script>
-    <script src="scripts/cart-badge-updater.js"></script>
+    <!-- Scripts -->
     <script src="scripts/script.js"></script>
+    <script src="scripts/language-switcher-shared.js"></script>
+    <script src="scripts/homepage-cinematic.js"></script>
+    <script src="scripts/cart-badge-updater.js"></script>
+    
 </body>
 </html>

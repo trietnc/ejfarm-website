@@ -1,0 +1,1512 @@
+/* ===================================
+   HOMEPAGE CINEMATIC STYLES
+   Digital Terroir Experience
+   =================================== */
+
+/* Import base styles for variables */
+@import 'styles.css';
+
+/* ===================================
+   RESET & GLOBAL STYLES
+   =================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: var(--bg-dark);
+    color: var(--text);
+    font-family: var(--font-sans);
+}
+
+/* Remove default scrollbar behavior for smoother experience */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===================================
+   HYBRID NAVIGATION
+   Minimal Hamburger Icon
+   =================================== */
+
+.minimal-nav {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.hamburger-icon {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.hamburger-icon:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ===================================
+   IMMERSIVE MENU OVERLAY
+   Full-Screen Menu
+   =================================== */
+
+.immersive-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-dark);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.immersive-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-close:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+.close-line {
+    position: absolute;
+    width: 32px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+}
+
+.close-line:first-child {
+    transform: rotate(45deg);
+}
+
+.close-line:last-child {
+    transform: rotate(-45deg);
+}
+
+.menu-content {
+    text-align: center;
+}
+
+.menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3rem 0;
+}
+
+.menu-links li {
+    margin: 1.5rem 0;
+}
+
+.menu-link {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover {
+    color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.menu-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.menu-language-switcher {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--text);
+    padding: 0.75rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg-dark);
+}
+
+/* ===================================
+   SCENE STYLES
+   Base styles for all scenes
+   =================================== */
+
+.scene {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ===================================
+   SCENE 1: HERO (CINEMATIC SAVOR.IT STYLE)
+   Full-screen video with bottom-left headline and bottom-right CTA
+   =================================== */
+
+.hero-scene {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Video Container and Overlay */
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Bottom-Left Container: Headline */
+.hero-headline-container {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 700;
+    color: hsl(300 0% 95%);
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Bottom-Right Container: CTA Button */
+.hero-cta-container {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    z-index: 2;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-element {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.hero-headline-container .fade-in-element {
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.hero-cta-container .fade-in-element {
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-headline-container {
+        bottom: 120px;
+        left: 30px;
+        right: 30px;
+        max-width: none;
+    }
+    
+    .hero-headline {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .hero-cta-container {
+        bottom: 50px;
+        left: 30px;
+        right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline-container {
+        bottom: 100px;
+        left: 20px;
+        right: 20px;
+    }
+    
+    .hero-cta-container {
+        bottom: 30px;
+        left: 20px;
+    }
+}
+
+/* ===================================
+   SCENE 2: COMMUNITY (SPLIT-SCREEN IMMERSIVE)
+   Full-screen split design with image and content
+   =================================== */
+
+.community-scene-immersive {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: var(--bg-dark);
+    overflow: hidden;
+}
+
+.community-split-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Left Side: Visual */
+.community-visual-side {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.community-image-primary {
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/daknong-hometown.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.community-image-primary.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.image-overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.6) 80%, var(--bg-dark) 100%);
+    z-index: 1;
+}
+
+.community-accent-text {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.08);
+    z-index: 0;
+    line-height: 1;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1.2s ease 0.4s;
+}
+
+.community-accent-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Right Side: Content */
+.community-content-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.community-content-inner {
+    max-width: 500px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+.community-content-inner.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.community-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+}
+
+.community-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+    letter-spacing: -0.01em;
+}
+
+.community-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--text);
+    margin-bottom: 2rem;
+    opacity: 0.3;
+}
+
+.community-text {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.85;
+}
+
+.community-link {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    margin-top: 1rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--text);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.community-link:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .community-split-container {
+        flex-direction: column;
+    }
+    
+    .community-visual-side {
+        flex: 0 0 40vh;
+    }
+    
+    .community-content-side {
+        flex: 1;
+        padding: 3rem 2rem;
+    }
+    
+    .community-accent-text {
+        bottom: 30px;
+        left: 30px;
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .community-content-side {
+        padding: 2rem 1.5rem;
+    }
+    
+    .community-title {
+        margin-bottom: 1.5rem;
+    }
+    
+    .community-text {
+        font-size: 1rem;
+    }
+}
+
+/* ===================================
+   SCENE 3: PROCESS (CINEMATIC JOURNEY)
+   Immersive storytelling with large visuals
+   =================================== */
+
+.process-scene-cinematic {
+    position: relative;
+    background: var(--bg-dark);
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+}
+
+.process-sticky-header {
+    text-align: center;
+    padding: 0 2rem 6rem;
+    position: relative;
+    z-index: 2;
+}
+
+.process-cinematic-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease;
+}
+
+.process-cinematic-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.process-cinematic-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0;
+    opacity: 0.7;
+    transform: translateY(0);
+    transition: all 1s ease 0.2s;
+}
+
+.process-cinematic-subtitle.visible {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+.process-journey-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Individual Act */
+.process-act {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    align-items: center;
+    position: relative;
+    padding: 4rem 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-act.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Alternate layout for even acts */
+.process-act[data-act="2"] {
+    grid-template-columns: 1fr 1fr;
+}
+
+.process-act[data-act="2"] .process-act-visual {
+    order: 2;
+}
+
+.process-act[data-act="2"] .process-act-content {
+    order: 1;
+    padding-left: 6rem;
+    padding-right: 4rem;
+}
+
+/* Visual Side */
+.process-act-visual {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.process-act-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 1.5s ease;
+}
+
+.process-act.visible .process-act-image {
+    transform: scale(1);
+}
+
+.process-act-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--bg-dark) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+}
+
+.process-act[data-act="2"] .process-act-overlay {
+    background: linear-gradient(270deg, var(--bg-dark) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Content Side */
+.process-act-content {
+    padding: 4rem 4rem 4rem 6rem;
+    position: relative;
+    z-index: 2;
+}
+
+.process-act-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(5rem, 10vw, 8rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.05);
+    line-height: 1;
+    margin-bottom: -2rem;
+    letter-spacing: -0.02em;
+}
+
+.process-act-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0 0 2rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    position: relative;
+}
+
+.process-act-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: var(--text);
+    margin-top: 1.5rem;
+    opacity: 0.3;
+}
+
+.process-act-description {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.8;
+    margin: 0;
+    opacity: 0.85;
+    max-width: 500px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .process-act {
+        grid-template-columns: 1fr !important;
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+    .process-act-visual {
+        order: 1 !important;
+        min-height: 400px;
+    }
+    
+    .process-act-content {
+        order: 2 !important;
+        padding: 3rem 2rem !important;
+    }
+    
+    .process-act[data-act="2"] .process-act-content {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    
+    .process-act-overlay {
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 50%, var(--bg-dark) 100%) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-scene-cinematic {
+        padding: 4rem 0 2rem;
+    }
+    
+    .process-sticky-header {
+        padding-bottom: 3rem;
+    }
+    
+    .process-act-visual {
+        min-height: 300px;
+    }
+    
+    .process-act-content {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .process-act-number {
+        font-size: clamp(4rem, 12vw, 6rem);
+        margin-bottom: -1.5rem;
+    }
+    
+    .process-act-description {
+        font-size: 1.125rem;
+    }
+}
+
+/* ===================================
+   SCENE 4: PRODUCT SHOWCASE (IMMERSIVE)
+   Editorial-style product presentation
+   =================================== */
+
+.product-scene-immersive {
+    position: relative;
+    background: var(--bg-dark);
+    padding: 8rem 2rem 6rem;
+}
+
+.product-showcase-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.product-showcase-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    opacity: 1;
+}
+
+.product-showcase-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0;
+    opacity: 0.7;
+}
+
+.product-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Individual Product Item */
+.product-showcase-item {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    opacity: 1;
+    position: relative;
+}
+
+/* Alternate layout for even items */
+.product-showcase-item:nth-child(even) {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+.product-showcase-item:nth-child(even) .product-showcase-visual {
+    order: 2;
+}
+
+.product-showcase-item:nth-child(even) .product-showcase-content {
+    order: 1;
+    text-align: left;
+}
+
+/* Featured Product (First Item) */
+.product-showcase-item.featured {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 2rem;
+}
+
+.product-showcase-item.featured .product-showcase-visual {
+    height: 70vh;
+    margin-bottom: -4rem;
+}
+
+.product-showcase-item.featured .product-showcase-content {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(20, 10, 5, 0.85));
+    backdrop-filter: blur(20px);
+    padding: 4rem;
+    margin: 0 auto;
+    max-width: 700px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* Visual Side */
+.product-showcase-visual {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.product-showcase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.product-showcase-item:hover .product-showcase-image {
+    transform: scale(1.05);
+}
+
+.product-showcase-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent);
+    z-index: 1;
+}
+
+/* Content Side */
+.product-showcase-content {
+    padding: 2rem;
+}
+
+.product-label {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 0.5rem;
+}
+
+.product-name {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.product-tagline {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 0 0 2rem 0;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.product-detail-item {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text);
+    opacity: 0.7;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.product-detail-item::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    opacity: 0.5;
+}
+
+.product-btn {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    background: transparent;
+    border: 2px solid var(--text);
+    padding: 0.875rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.product-btn:hover {
+    background: var(--text);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.product-showcase-footer {
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.view-all-products {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--text);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.view-all-products:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .product-showcase-item {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+    
+    .product-showcase-item:nth-child(even) .product-showcase-visual {
+        order: 1;
+    }
+    
+    .product-showcase-item:nth-child(even) .product-showcase-content {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-scene-immersive {
+        padding: 4rem 1.5rem 3rem;
+    }
+    
+    .product-showcase-header {
+        margin-bottom: 3rem;
+    }
+    
+    .product-showcase-grid {
+        gap: 3rem;
+    }
+    
+    .product-showcase-visual {
+        height: 350px;
+    }
+    
+    .product-showcase-item.featured .product-showcase-visual {
+        height: 50vh;
+    }
+    
+    .product-showcase-item.featured .product-showcase-content {
+        padding: 2.5rem 2rem;
+    }
+    
+    .product-showcase-content {
+        padding: 1rem;
+    }
+    
+    .product-name {
+        margin-bottom: 0.75rem;
+    }
+    
+    .product-tagline {
+        margin-bottom: 1.5rem;
+    }
+    
+    .product-details {
+        margin-bottom: 2rem;
+    }
+    
+    .product-showcase-footer {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-showcase-visual {
+        height: 280px;
+        border-radius: 8px;
+    }
+    
+    .product-showcase-item.featured .product-showcase-content {
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .product-btn {
+        padding: 0.75rem 2rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ===================================
+   SCENE 5: TESTIMONIAL
+   Full-screen quote with image background
+   =================================== */
+
+.testimonial-scene {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.testimonial-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/product-drinking-in-nature.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+.testimonial-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+}
+
+.testimonial-quote {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin: 0 0 2rem 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.testimonial-quote.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.testimonial-attribution {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: var(--text-muted);
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+
+.testimonial-attribution.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================
+   SCENE 6: FINALE
+   Cinematic CTA with video background
+   =================================== */
+
+.finale-scene {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.finale-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.finale-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.finale-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+}
+
+.finale-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 2.5rem 0;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.finale-headline.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.finale-cta-button {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--bg-dark);
+    background: var(--primary);
+    padding: 1.25rem 3.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.3s, transform 1s ease 0.3s, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.finale-cta-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.finale-cta-button:hover {
+    background: var(--text);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+}
+
+/* ===================================
+   CINEMATIC FOOTER
+   Minimalist footer design
+   =================================== */
+
+.cinematic-footer {
+    background: var(--bg-dark);
+    border-top: 1px solid var(--border-muted);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+}
+
+.footer-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 300px;
+}
+
+.footer-heading {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.25rem 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-muted);
+}
+
+.footer-copyright {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.footer-language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+}
+
+.footer-lang-btn:hover,
+.footer-lang-btn.active {
+    color: var(--primary);
+}
+
+.footer-lang-divider {
+    color: var(--border);
+}
+
+/* ===================================
+   FADE IN ANIMATION
+   General class for IntersectionObserver
+   =================================== */
+
+.fade-in-element {
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   Mobile optimizations
+   =================================== */
+
+@media (max-width: 768px) {
+    .minimal-nav {
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .hamburger-icon {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .hamburger-line {
+        width: 20px;
+    }
+    
+    .menu-link {
+        font-size: 2rem;
+    }
+    
+    .hero-headline {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+    
+    .origin-headline {
+        font-size: clamp(1.75rem, 8vw, 3rem);
+        padding: 1.5rem;
+    }
+    
+    .scroll-indicator {
+        bottom: 2rem;
+    }
+    
+    .origin-background {
+        background-attachment: scroll;
+    }
+    
+    /* Scene 3: Process */
+    .process-headline {
+        font-size: clamp(2rem, 10vw, 4rem);
+        padding: 1.5rem;
+    }
+    
+    /* Scene 4: Products */
+    .product-sticky-background {
+        background-attachment: scroll;
+    }
+    
+    .filmstrip-headline {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 2rem;
+    }
+    
+    .product-card-premium {
+        width: 280px;
+    }
+    
+    .premium-image-container {
+        height: 240px;
+    }
+    
+    .product-scrolling-filmstrip {
+        padding: 3rem 1rem;
+    }
+    
+    /* Scene 5: Testimonial */
+    .testimonial-background {
+        background-attachment: scroll;
+    }
+    
+    .testimonial-quote {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+    
+    .testimonial-attribution {
+        font-size: 1rem;
+    }
+    
+    /* Scene 6: Finale */
+    .finale-headline {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: 2rem;
+    }
+    
+    .finale-cta-button {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-link {
+        font-size: 1.5rem;
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-arrow {
+        animation: none;
+    }
+}
+
+/* Focus states for keyboard navigation */
+.hamburger-icon:focus,
+.menu-close:focus,
+.menu-link:focus,
+.lang-btn:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}

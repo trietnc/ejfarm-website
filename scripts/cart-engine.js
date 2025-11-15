@@ -16,6 +16,19 @@
  *   window.addEventListener('cartupdated', (e) => { console.log(e.detail); })
  */
 
+// ============================================
+// SECRET GIFT DEFINITION
+// ============================================
+const SECRET_GIFT = {
+    id: 'GIFT-01',
+    title: 'Quà Tặng Bí Mật',
+    subtitle: 'món quà nhỏ từ EJ Farm',
+    price: '0₫',
+    priceNumeric: 0,
+    image: 'images/gift-product.png',
+    category: 'gift'
+};
+
 const EJC_Cart = (() => {
     'use strict';
 
@@ -182,6 +195,30 @@ const EJC_Cart = (() => {
             productTitle: product.title,
             quantity: quantity 
         });
+
+        // AUTO-ADD SECRET GIFT LOGIC
+        // Check if this is the first product and not the gift itself
+        const updatedCart = loadCart();
+        if (product.id !== SECRET_GIFT.id && updatedCart.length === 1) {
+            // This is the first product - auto-add the secret gift
+            const giftItem = {
+                id: SECRET_GIFT.id,
+                title: SECRET_GIFT.title,
+                subtitle: SECRET_GIFT.subtitle,
+                price: SECRET_GIFT.price,
+                priceNumeric: SECRET_GIFT.priceNumeric,
+                image: SECRET_GIFT.image,
+                category: SECRET_GIFT.category,
+                quantity: 1,
+                subtotal: 0,
+                addedAt: new Date().toISOString(),
+                isGift: true
+            };
+            updatedCart.push(giftItem);
+            saveCart(updatedCart);
+            console.log('🎁 Secret gift automatically added!');
+            dispatchCartEvent('gift-added', { giftId: SECRET_GIFT.id });
+        }
 
         return cart.find(item => item.id === product.id);
     };

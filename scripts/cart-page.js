@@ -42,7 +42,40 @@
          */
         function createCartItemHTML(item) {
             const totalPrice = item.priceNumeric * item.quantity;
+            const isGift = item.id === 'GIFT-01';
             
+            // Special rendering for SECRET GIFT
+            if (isGift) {
+                return `
+                    <div class="cart-item cart-item-gift" data-product-id="${item.id}">
+                        <div class="item-product">
+                            <img src="${item.image}" alt="${item.title}" loading="lazy">
+                            <div class="item-details">
+                                <h3>${item.title} 🎁</h3>
+                                <p class="cart-item-gift-note">món quà nhỏ từ EJ Farm</p>
+                            </div>
+                        </div>
+                        <div class="item-price">Miễn phí</div>
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <input 
+                                    type="number" 
+                                    class="qty-input" 
+                                    value="1" 
+                                    disabled
+                                    aria-label="Quantity"
+                                >
+                            </div>
+                        </div>
+                        <div class="item-total">0₫</div>
+                        <div class="item-remove">
+                            <span class="gift-lock" title="Không thể xóa món quà">🔒</span>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Normal product rendering
             return `
                 <div class="cart-item" data-product-id="${item.id}">
                     <div class="item-product">
