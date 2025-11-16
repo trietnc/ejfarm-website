@@ -677,3 +677,123 @@
     }
 }
 
+/* =====================================================
+   GIFT ITEM STYLING IN RECEIPT
+   ===================================================== */
+
+.receipt-item-gift {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.08), 
+        rgba(255, 193, 7, 0.05),
+        rgba(139, 69, 19, 0.06)
+    );
+    border: 2px solid rgba(255, 193, 7, 0.3) !important;
+    position: relative;
+    overflow: hidden;
+    animation: giftShimmer 3s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
+}
+
+.receipt-item-gift::before {
+    content: '🎁';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    opacity: 0.15;
+    animation: giftBounce 2s ease-in-out infinite;
+}
+
+.receipt-item-gift::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: giftShine 3s ease-in-out infinite;
+}
+
+[data-theme="light"] .receipt-item-gift {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.15), 
+        rgba(255, 193, 7, 0.1),
+        rgba(139, 69, 19, 0.08)
+    );
+    border-color: rgba(255, 193, 7, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+}
+
+.receipt-item-gift .receipt-item-title {
+    color: #d4a574;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .receipt-item-gift .receipt-item-title {
+    color: #c49150;
+}
+
+.receipt-item-gift-note {
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+    font-style: italic;
+    margin: 0.25rem 0 0 0;
+    font-weight: 600;
+    background: linear-gradient(90deg, rgba(139, 69, 19, 0.8), rgba(255, 193, 7, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.receipt-item-gift-price {
+    color: #ffc107 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .receipt-item-gift-price {
+    color: #f59e0b !important;
+}
+
+/* Gift Animations */
+@keyframes giftShimmer {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3);
+    }
+}
+
+@keyframes giftBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-3px) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(5deg);
+    }
+}
+
+@keyframes giftShine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+

@@ -143,6 +143,23 @@ document.addEventListener('DOMContentLoaded', function() {
      * @returns {string} HTML string
      */
     function createReceiptItemHTML(item) {
+        // Check if this is a gift item
+        const isGift = item.isGift === true || item.id === 'GIFT-01';
+        
+        // Special rendering for SECRET GIFT
+        if (isGift) {
+            return `
+                <div class="receipt-item receipt-item-gift">
+                    <img src="images/4-enhanced.png" alt="${item.title}" class="receipt-item-image">
+                    <div class="receipt-item-details">
+                        <h4 class="receipt-item-title">${item.quantity}x ${item.title} 🎁</h4>
+                        <p class="receipt-item-gift-note">Món quà nhỏ từ EJ Farm</p>
+                    </div>
+                    <div class="receipt-item-price receipt-item-gift-price">Miễn phí</div>
+                </div>
+            `;
+        }
+        
         // Format the item total (price * quantity)
         const itemTotal = (item.priceNumeric * item.quantity).toLocaleString('vi-VN');
 

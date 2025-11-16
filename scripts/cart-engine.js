@@ -25,7 +25,7 @@ const SECRET_GIFT = {
     subtitle: 'món quà nhỏ từ EJ Farm',
     price: '0₫',
     priceNumeric: 0,
-    image: 'images/gift-product.png',
+    image: 'images/4-enhanced.png',
     category: 'gift'
 };
 
