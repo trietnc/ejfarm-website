@@ -32,7 +32,6 @@
     background: var(--bg);
     padding: 3rem 0;
     border-bottom: 1px solid var(--border-muted);
-    position: sticky;
     top: 70px;
     z-index: 100;
     backdrop-filter: blur(10px);
@@ -99,27 +98,12 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: cardFadeIn 0.6s ease forwards;
+    opacity: 1;
 }
-
-.product-card-premium:nth-child(1) { animation-delay: 0.1s; }
-.product-card-premium:nth-child(2) { animation-delay: 0.2s; }
-.product-card-premium:nth-child(3) { animation-delay: 0.3s; }
-.product-card-premium:nth-child(4) { animation-delay: 0.4s; }
-.product-card-premium:nth-child(5) { animation-delay: 0.5s; }
 .product-card-premium:nth-child(6) { animation-delay: 0.6s; }
 .product-card-premium:nth-child(7) { animation-delay: 0.7s; }
 .product-card-premium:nth-child(8) { animation-delay: 0.8s; }
 .product-card-premium:nth-child(9) { animation-delay: 0.9s; }
-
-@keyframes cardFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .product-card-premium:hover {
     transform: translateY(-8px);
@@ -765,5 +749,213 @@
         right: 1rem;
         left: 1rem;
         max-width: none;
+    }
+}
+
+/* =====================================================
+   GIFT NOTIFICATION TOAST
+   ===================================================== */
+
+.gift-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.95), 
+        rgba(255, 193, 7, 0.95)
+    );
+    color: #3e2723;
+    padding: 1.25rem 1.75rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 10001;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 350px;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gift-toast.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gift-toast-icon {
+    font-size: 2rem;
+    animation: giftToastBounce 0.6s ease-in-out;
+}
+
+.gift-toast-content {
+    flex: 1;
+}
+
+.gift-toast-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 0.25rem 0;
+    color: #5d4037;
+}
+
+.gift-toast-message {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #6d4c41;
+    font-weight: 500;
+}
+
+[data-theme="light"] .gift-toast {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.98), 
+        rgba(255, 193, 7, 0.98)
+    );
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.5);
+}
+
+@keyframes giftToastBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+    50% {
+        transform: scale(0.9) rotate(10deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+/* Mobile Responsive for Gift Toast */
+@media (max-width: 768px) {
+    .gift-toast {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        padding: 1rem 1.25rem;
+    }
+    
+    .gift-toast-icon {
+        font-size: 1.75rem;
+    }
+    
+    .gift-toast-title {
+        font-size: 0.95rem;
+    }
+    
+    .gift-toast-message {
+        font-size: 0.85rem;
+    }
+}
+
+/* ===================================
+   GIFT NOTIFICATION TOAST
+   =================================== */
+
+.gift-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.95), 
+        rgba(255, 193, 7, 0.95)
+    );
+    color: #3e2723;
+    padding: 1.25rem 1.75rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 350px;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gift-toast.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gift-toast-icon {
+    font-size: 2rem;
+    animation: giftToastBounce 0.6s ease-in-out;
+}
+
+.gift-toast-content {
+    flex: 1;
+}
+
+.gift-toast-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 0.25rem 0;
+    color: #5d4037;
+}
+
+.gift-toast-message {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #6d4c41;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .gift-toast {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.98), 
+        rgba(255, 193, 7, 0.98)
+    );
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.5);
+}
+
+@keyframes giftToastBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+    50% {
+        transform: scale(0.9) rotate(10deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+/* Mobile Responsive for Gift Toast */
+@media (max-width: 768px) {
+    .gift-toast {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        padding: 1rem 1.25rem;
+    }
+    
+    .gift-toast-icon {
+        font-size: 1.75rem;
+    }
+    
+    .gift-toast-title {
+        font-size: 0.95rem;
+    }
+    
+    .gift-toast-message {
+        font-size: 0.85rem;
     }
 }

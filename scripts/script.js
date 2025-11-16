@@ -45,10 +45,41 @@ const hamburger = document.querySelector('.hamburger');
 const navRightGroup = document.querySelector('.nav-right-group');
 const navMenu = document.querySelector('.nav-menu');
 
+// Create backdrop element
+let mobileBackdrop = document.querySelector('.mobile-menu-backdrop');
+if (!mobileBackdrop) {
+    mobileBackdrop = document.createElement('div');
+    mobileBackdrop.className = 'mobile-menu-backdrop';
+    document.body.appendChild(mobileBackdrop);
+}
+
+// Toggle mobile menu
 if (hamburger && navRightGroup) {
     hamburger.addEventListener('click', () => {
         navRightGroup.classList.toggle('active');
         hamburger.classList.toggle('active');
+        mobileBackdrop.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (navRightGroup.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// Close menu when clicking backdrop
+if (mobileBackdrop) {
+    mobileBackdrop.addEventListener('click', () => {
+        if (navRightGroup) {
+            navRightGroup.classList.remove('active');
+        }
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
+        mobileBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
     });
 }
 
@@ -62,6 +93,10 @@ navLinks.forEach(link => {
         if (hamburger) {
             hamburger.classList.remove('active');
         }
+        if (mobileBackdrop) {
+            mobileBackdrop.classList.remove('active');
+        }
+        document.body.style.overflow = '';
     });
 });
 
@@ -225,30 +260,11 @@ ctaButtons.forEach(button => {
 });
 
 // ===================================
-// LAZY LOADING IMAGES
+// LAZY LOADING IMAGES - DISABLED
 // ===================================
 
-const images = document.querySelectorAll('img[src]');
-
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
-                
-                img.onload = () => {
-                    img.style.opacity = '1';
-                };
-                
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
+// Lazy loading has been disabled to prevent image visibility issues
+// Images now load normally without fade-in animation
 
 // ===================================
 // SCROLL PROGRESS INDICATOR (Optional)

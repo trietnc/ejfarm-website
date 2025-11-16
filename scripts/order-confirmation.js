@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
             populateOrderInfo(orderData);
             populateOrderSummary(orderData);
 
+            // Check if order contains secret gift and show notification
+            checkForSecretGift(orderData);
+
             // Clear the order data from localStorage (one-time use)
             localStorage.removeItem('EJC_LastOrder');
             console.log('🗑️ Order data cleared from localStorage');
@@ -153,6 +156,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="receipt-item-price">${itemTotal}₫</div>
             </div>
         `;
+    }
+
+    /**
+     * Check if order contains secret gift and show notification
+     * @param {Object} orderData - Order data object
+     */
+    function checkForSecretGift(orderData) {
+        // Check if any item in the order has isGift property set to true
+        if (orderData.items && orderData.items.length > 0) {
+            const hasGift = orderData.items.some(item => item.isGift === true);
+            
+            if (hasGift) {
+                console.log('🎁 Secret gift found in order, showing notification...');
+                
+                // Show gift notification after a short delay
+                setTimeout(() => {
+                    if (typeof window.showGiftNotification === 'function') {
+                        window.showGiftNotification(
+                            '🎉 Chúc mừng!',
+                            'Đơn hàng của bạn có kèm theo một món quà bí mật miễn phí từ EJ Farm!'
+                        );
+                    }
+                }, 1000); // Show after 1 second
+            }
+        }
     }
 
     /**

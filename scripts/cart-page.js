@@ -49,10 +49,10 @@
                 return `
                     <div class="cart-item cart-item-gift" data-product-id="${item.id}">
                         <div class="item-product">
-                            <img src="${item.image}" alt="${item.title}" loading="lazy">
+                            <img src="images/4-enhanced.png" alt="${item.title}" loading="lazy">
                             <div class="item-details">
                                 <h3>${item.title} 🎁</h3>
-                                <p class="cart-item-gift-note">món quà nhỏ từ EJ Farm</p>
+                                <p class="cart-item-gift-note">Món quà nhỏ từ EJ Farm</p>
                             </div>
                         </div>
                         <div class="item-price">Miễn phí</div>
@@ -349,7 +349,13 @@
             const items = EJC_Cart.getCart();
 
             if (!items || items.length === 0) {
-                alert('Your cart is empty!');
+                alert('Giỏ hàng của bạn đang trống!');
+                return;
+            }
+            
+            // Check if cart has real products (not just the gift)
+            if (!EJC_Cart.hasRealProducts()) {
+                alert('Vui lòng thêm sản phẩm vào giỏ hàng để nhận quà!');
                 return;
             }
 

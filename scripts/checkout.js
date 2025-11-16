@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'cart.html';
             return;
         }
+        
+        // Check if cart has real products (not just the gift)
+        if (!EJC_Cart.hasRealProducts()) {
+            console.log('Cart has only gift items, redirecting to cart page...');
+            alert('Vui lòng thêm sản phẩm vào giỏ hàng để nhận quà!');
+            window.location.href = 'cart.html';
+            return;
+        }
 
         // Build HTML for order items
         let itemsHTML = '';
@@ -65,6 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
      * @returns {string} HTML string
      */
     function createOrderItemHTML(item) {
+        // Check if this is the secret gift
+        const isGift = item.id === 'GIFT-01';
+        
+        if (isGift) {
+            return `
+                <div class="order-item order-item-gift">
+                    <img src="images/4-enhanced.png" alt="${item.title}" class="order-item-image">
+                    <div class="order-item-details">
+                        <h4 class="order-item-title">${item.quantity}x ${item.title} 🎁</h4>
+                        <p class="order-item-subtitle gift-note">Món quà nhỏ từ EJ Farm</p>
+                    </div>
+                    <div class="order-item-price gift-price">Miễn phí</div>
+                </div>
+            `;
+        }
+        
         // Format the item total (price * quantity)
         const itemTotal = (item.priceNumeric * item.quantity).toLocaleString('vi-VN');
 

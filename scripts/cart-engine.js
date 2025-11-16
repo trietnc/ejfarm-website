@@ -240,6 +240,20 @@ const EJC_Cart = (() => {
 
         saveCart(filtered);
         dispatchCartEvent('remove', { productId: productId });
+        
+        // AUTO-REMOVE SECRET GIFT if no real products remain
+        const updatedCart = loadCart();
+        const hasRealProducts = updatedCart.some(item => item.id !== SECRET_GIFT.id);
+        const hasGift = updatedCart.some(item => item.id === SECRET_GIFT.id);
+        
+        if (!hasRealProducts && hasGift) {
+            // Remove the gift since there are no real products
+            const cartWithoutGift = updatedCart.filter(item => item.id !== SECRET_GIFT.id);
+            saveCart(cartWithoutGift);
+            console.log('🎁 Secret gift removed - no real products in cart');
+            dispatchCartEvent('gift-removed', { reason: 'no-real-products' });
+        }
+        
         return true;
     };
 
@@ -345,6 +359,15 @@ const EJC_Cart = (() => {
     };
 
     /**
+     * Check if cart has real products (non-gift items)
+     * @returns {boolean} - True if cart has at least one real product
+     */
+    const hasRealProducts = () => {
+        const cart = loadCart();
+        return cart.some(item => item.id !== SECRET_GIFT.id);
+    };
+
+    /**
      * Get cart summary statistics
      * @returns {Object} - Cart statistics
      */
@@ -355,7 +378,8 @@ const EJC_Cart = (() => {
             uniqueItems: cart.length,
             total: getTotal(),
             totalFormatted: getTotalFormatted(),
-            isEmpty: cart.length === 0
+            isEmpty: cart.length === 0,
+            hasRealProducts: hasRealProducts()
         };
     };
 
@@ -389,13 +413,15 @@ const EJC_Cart = (() => {
         getCount,
         getStats,
         hasItem,
+        hasRealProducts,
 
         // Utilities
         utils,
 
         // Constants (read-only access)
         STORAGE_KEY,
-        CART_EVENT
+        CART_EVENT,
+        SECRET_GIFT
     };
 })();
 

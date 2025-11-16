@@ -25,7 +25,7 @@
                 <ul class="nav-menu">
                     <li><a href="storypage.html" data-key="nav.story">Our Story</a></li>
                     <li><a href="processpage.html" data-key="nav.process">Process</a></li>
-                    <li><a href="collectionpage.html" data-key="nav.shop">Shop</a></li>
+                    <li><a href="wholesale.html" data-key="nav.wholesale">Partnerships</a></li>
                     <li><a href="blog.html" data-key="nav.blogs">Blogs</a></li>
                     <li><a href="collectionpage.html" class="nav-cta" data-key="nav.cta">Shop Coffee</a></li>
                 </ul>
@@ -65,6 +65,11 @@
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
+                    <button class="hamburger" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -75,7 +80,7 @@
         <!-- Video Container -->
         <div class="hero-video-container">
             <video class="hero-video" autoplay loop muted playsinline>
-                <source src="images/ejfarm-video.mp4" type="video/mp4">
+                <source src="images/ejfarm-video-1.mp4" type="video/webm">
                 Your browser does not support the video tag.
             </video>
             <div class="hero-video-overlay"></div>
@@ -83,12 +88,12 @@
         
         <!-- Bottom-Left Container: Headline -->
         <div class="hero-headline-container">
-            <h1 class="hero-headline fade-in-element">Born from the Đắk Nông soil</h1>
+            <h1 class="hero-headline fade-in-element" data-key="hero.headline">Born from the Đắk Nông soil</h1>
         </div>
         
         <!-- Bottom-Right Container: CTA Button -->
         <div class="hero-cta-container">
-            <a href="collectionpage.html" class="btn btn-primary fade-in-element">Shop Now</a>
+            <a href="collectionpage.html" class="btn btn-primary fade-in-element" data-key="hero.btn.primary">Shop Now</a>
         </div>
     </section>
 
@@ -100,23 +105,23 @@
                 <div class="community-image-primary">
                     <div class="image-overlay-dark"></div>
                 </div>
-                <div class="community-accent-text">Đắk Nông</div>
+                <div class="community-accent-text"></div>
             </div>
             
             <!-- Right Side: Content -->
             <div class="community-content-side">
                 <div class="community-content-inner">
-                    <span class="community-label">Our Heritage</span>
-                    <h2 class="community-title">Rooted in<br>Community</h2>
+                    <span class="community-label" data-key="community.label">Our Heritage</span>
+                    <h2 class="community-title" data-key="community.title">Rooted in<br>Community</h2>
                     <div class="community-divider"></div>
-                    <p class="community-text">
+                    <p class="community-text" data-key="community.text1">
                         Every bean carries the dedication of our farmers, nurtured by generations 
                         of knowledge and the rich volcanic terroir of the Central Highlands.
                     </p>
-                    <p class="community-text">
+                    <p class="community-text" data-key="community.text2">
                         From family farms to your cup, we honor the hands that make our craft possible.
                     </p>
-                    <a href="storypage.html" class="community-link">Discover Our Story →</a>
+                    <a href="storypage.html" class="community-link" data-key="community.link">Discover Our Story →</a>
                 </div>
             </div>
         </div>
@@ -125,21 +130,21 @@
     <!-- SCENE 3: The Process (Cinematic Journey) -->
     <section id="process-scene-new" class="scene process-scene-cinematic">
         <div class="process-sticky-header">
-            <h2 class="process-cinematic-title">From Soil to Cup</h2>
-            <p class="process-cinematic-subtitle">A journey of craftsmanship in three acts</p>
+            <h2 class="process-cinematic-title" data-key="process.headline">From Soil to Cup</h2>
+            <p class="process-cinematic-subtitle" data-key="process.subtitle">A journey of craftsmanship in three acts</p>
         </div>
         
         <div class="process-journey-container">
             <!-- Act 1: Harvest -->
             <div class="process-act" data-act="1">
                 <div class="process-act-visual">
-                    <img src="images/product-harvesting.webp" alt="Coffee Harvest" class="process-act-image">
+                    <img src="images/adult-harvesting-coffee.jpg" alt="Coffee Harvest" class="process-act-image">
                     <div class="process-act-overlay"></div>
                 </div>
                 <div class="process-act-content">
-                    <span class="process-act-number">01</span>
-                    <h3 class="process-act-title">Harvest</h3>
-                    <p class="process-act-description">
+                    <span class="process-act-number" style="color: rgb(138, 129, 129)">01</span>
+                    <h3 class="process-act-title" data-key="process.step1.title">Harvest</h3>
+                    <p class="process-act-description" data-key="process.step1.text">
                         Hand-selected at peak ripeness, each cherry is carefully picked from our 
                         highland farms where volcanic soil enriches every bean.
                     </p>
@@ -149,13 +154,13 @@
             <!-- Act 2: Roast -->
             <div class="process-act" data-act="2">
                 <div class="process-act-visual">
-                    <img src="images/10.jpg" alt="Coffee Roasting" class="process-act-image">
+                    <img src="images/roast-coffee.jpg" alt="Coffee Roasting" class="process-act-image">
                     <div class="process-act-overlay"></div>
                 </div>
                 <div class="process-act-content">
-                    <span class="process-act-number">02</span>
-                    <h3 class="process-act-title">Roast</h3>
-                    <p class="process-act-description">
+                    <span class="process-act-number" style="color: rgb(138, 129, 129)">02</span>
+                    <h3 class="process-act-title" data-key="process.step2.title">Roast</h3>
+                    <p class="process-act-description" data-key="process.step2.text">
                         Small-batch roasting brings out the unique characteristics of our beans, 
                         carefully developing flavors that honor their origin.
                     </p>
@@ -165,13 +170,13 @@
             <!-- Act 3: Craft -->
             <div class="process-act" data-act="3">
                 <div class="process-act-visual">
-                    <img src="images/product-1.png" alt="Coffee Crafting" class="process-act-image">
+                    <img src="images/coffee-product.png" alt="Coffee Crafting" class="process-act-image">
                     <div class="process-act-overlay"></div>
                 </div>
                 <div class="process-act-content">
-                    <span class="process-act-number">03</span>
-                    <h3 class="process-act-title">Craft</h3>
-                    <p class="process-act-description">
+                    <span class="process-act-number" style="color: rgb(138, 129, 129)">03</span>
+                    <h3 class="process-act-title" data-key="process.step3.title">Craft</h3>
+                    <p class="process-act-description" data-key="process.step3.text">
                         Meticulously packaged to preserve freshness and quality, delivering 
                         the essence of Đắk Nông directly to your table.
                     </p>
@@ -183,8 +188,8 @@
     <!-- SCENE 4: The Products (Immersive Showcase) -->
     <section id="product-scene-4" class="scene product-scene-immersive">
         <div class="product-showcase-header">
-            <h2 class="product-showcase-title">The Collection</h2>
-            <p class="product-showcase-subtitle">Handcrafted excellence from volcanic highlands</p>
+            <h2 class="product-showcase-title" data-key="collection.headline">The Collection</h2>
+            <p class="product-showcase-subtitle" data-key="collection.subtitle">Handcrafted excellence from volcanic highlands</p>
         </div>
         
         <div class="product-showcase-grid">
@@ -195,14 +200,14 @@
                     <div class="product-showcase-overlay"></div>
                 </div>
                 <div class="product-showcase-content">
-                    <span class="product-label">Single Origin</span>
-                    <h3 class="product-name">Mo Nong</h3>
-                    <p class="product-tagline">Volcanic terroir in every sip</p>
+                    <span class="product-label" style="color: white" data-key="collection.product1.label">Single Origin</span>
+                    <h3 class="product-name" style="color: white" data-key="collection.product1.title">Mo Nong</h3>
+                    <p class="product-tagline" style="color: white" data-key="collection.product1.tagline">Volcanic terroir in every sip</p>
                     <div class="product-details">
-                        <span class="product-detail-item">Notes: Chocolate, Caramel</span>
-                        <span class="product-detail-item">Medium Roast</span>
+                        <span class="product-detail-item" style="color: white" data-key="collection.product1.notes">Notes: Chocolate, Caramel</span>
+                        <span class="product-detail-item" style="color: white" data-key="collection.product1.roast">Medium Roast</span>
                     </div>
-                    <a href="collectionpage.html" class="product-btn">Discover</a>
+                    <a href="collectionpage.html" class="product-btn" style="color: white; border-color: white" data-key="collection.product1.cta">Discover</a>
                 </div>
             </div>
             
@@ -213,14 +218,14 @@
                     <div class="product-showcase-overlay"></div>
                 </div>
                 <div class="product-showcase-content">
-                    <span class="product-label">House Blend</span>
-                    <h3 class="product-name">Community</h3>
-                    <p class="product-tagline">Balanced. Bold. Beautiful.</p>
+                    <span class="product-label" data-key="collection.product2.label">House Blend</span>
+                    <h3 class="product-name" data-key="collection.product2.title">Community</h3>
+                    <p class="product-tagline" data-key="collection.product2.tagline">Balanced. Bold. Beautiful.</p>
                     <div class="product-details">
-                        <span class="product-detail-item">Notes: Nutty, Smooth</span>
-                        <span class="product-detail-item">Dark Roast</span>
+                        <span class="product-detail-item" data-key="collection.product2.notes">Notes: Nutty, Smooth</span>
+                        <span class="product-detail-item" data-key="collection.product2.roast">Dark Roast</span>
                     </div>
-                    <a href="collectionpage.html" class="product-btn">Discover</a>
+                    <a href="collectionpage.html" class="product-btn" data-key="collection.product2.cta">Discover</a>
                 </div>
             </div>
             
@@ -231,20 +236,20 @@
                     <div class="product-showcase-overlay"></div>
                 </div>
                 <div class="product-showcase-content">
-                    <span class="product-label">Limited Edition</span>
-                    <h3 class="product-name">Highland Reserve</h3>
-                    <p class="product-tagline">Exclusive small-batch perfection</p>
+                    <span class="product-label" data-key="collection.product3.label">Limited Edition</span>
+                    <h3 class="product-name" data-key="collection.product3.title">Highland Reserve</h3>
+                    <p class="product-tagline" data-key="collection.product3.tagline">Exclusive small-batch perfection</p>
                     <div class="product-details">
-                        <span class="product-detail-item">Notes: Floral, Citrus</span>
-                        <span class="product-detail-item">Light Roast</span>
+                        <span class="product-detail-item" data-key="collection.product3.notes">Notes: Floral, Citrus</span>
+                        <span class="product-detail-item" data-key="collection.product3.roast">Light Roast</span>
                     </div>
-                    <a href="collectionpage.html" class="product-btn">Discover</a>
+                    <a href="collectionpage.html" class="product-btn" data-key="collection.product3.cta">Discover</a>
                 </div>
             </div>
         </div>
         
         <div class="product-showcase-footer">
-            <a href="collectionpage.html" class="view-all-products">View Full Collection →</a>
+            <a href="collectionpage.html" class="view-all-products" data-key="collection.footer">View Full Collection →</a>
         </div>
     </section>
 
@@ -254,11 +259,11 @@
         <div class="testimonial-overlay"></div>
         
         <div class="testimonial-content">
-            <h2 class="testimonial-quote fade-in-element">
+            <h2 class="testimonial-quote fade-in-element" style="color: rgb(255, 255, 255)" data-key="testimonials.critic.quote">
                 "A new standard for Vietnamese specialty coffee."
             </h2>
-            <p class="testimonial-attribution fade-in-element">
-                — Minh Đức Trần, Ăn Magazine
+            <p class="testimonial-attribution fade-in-element" style="color: white">
+                <span data-key="testimonials.critic.name">Minh Đức Trần</span>, <span data-key="testimonials.critic.title">Ăn Magazine</span>
             </p>
         </div>
     </section>
@@ -272,8 +277,8 @@
         <div class="finale-overlay"></div>
         
         <div class="finale-content">
-            <h2 class="finale-headline fade-in-element">Taste the Journey</h2>
-            <a href="collectionpage.html" class="finale-cta-button fade-in-element">Shop Now</a>
+            <h2 class="finale-headline fade-in-element" style="color: white" data-key="cta.headline">Taste the Journey</h2>
+            <a href="collectionpage.html" class="finale-cta-button fade-in-element" data-key="cta.btn">Shop Now</a>
         </div>
     </section>
 
@@ -282,16 +287,16 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-col footer-brand">
-                    <h4 class="footer-logo">EJ Farm</h4>
-                    <p class="footer-tagline">Volcanic terroir. Artisan craft. Born of community.</p>
+                    <h4 class="footer-logo" data-key="nav.brand">EJ Farm</h4>
+                    <p class="footer-tagline" data-key="footer.brand.desc">Volcanic terroir. Artisan craft. Born of community.</p>
                 </div>
                 
                 <div class="footer-col">
-                    <h5 class="footer-heading">Explore</h5>
+                    <h5 class="footer-heading" data-key="footer.about.title">Explore</h5>
                     <ul class="footer-links">
-                        <li><a href="storypage.html">Our Story</a></li>
-                        <li><a href="processpage.html">The Process</a></li>
-                        <li><a href="collectionpage.html">Collection</a></li>
+                        <li><a href="storypage.html" data-key="footer.about.story">Our Story</a></li>
+                        <li><a href="processpage.html" data-key="footer.about.process">The Process</a></li>
+                        <li><a href="collectionpage.html" data-key="footer.shop.coffee">Collection</a></li>
                         <li><a href="blog.html">Journal</a></li>
                     </ul>
                 </div>
@@ -307,7 +312,7 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h5 class="footer-heading">Connect</h5>
+                    <h5 class="footer-heading" data-key="footer.contact.title">Connect</h5>
                     <ul class="footer-links">
                         <li><a href="mailto:hello@ejfarm.vn">hello@ejfarm.vn</a></li>
                         <li><a href="tel:0905747745">090 574 7745</a></li>
@@ -317,7 +322,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p class="footer-copyright">&copy; 2025 EJ Farm. All rights reserved.</p>
+                <p class="footer-copyright" data-key="footer.bottom">&copy; 2025 EJ Farm. All rights reserved.</p>
                 <div class="footer-language-switcher">
                     <button class="footer-lang-btn" data-lang="en">EN</button>
                     <span class="footer-lang-divider">|</span>
@@ -328,6 +333,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="scripts/translations-index.js"></script>
     <script src="scripts/script.js"></script>
     <script src="scripts/language-switcher-shared.js"></script>
     <script src="scripts/homepage-cinematic.js"></script>

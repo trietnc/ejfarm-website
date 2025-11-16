@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card-premium');
     
+    // Initialize all cards as visible on page load
+    productCards.forEach(card => {
+        card.style.display = 'block';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    });
+    
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');
@@ -32,16 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardCategory = card.getAttribute('data-category');
             
             if (category === 'all' || cardCategory === category) {
-                // Show card with staggered animation
+                // Show card immediately without animation
                 card.style.display = 'block';
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 50);
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
             } else {
                 // Hide card
                 card.style.opacity = '0';
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         1: {
             category: 'coffee',
             badge: 'bestseller',
-            image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800',
+            image: 'images/product-1.png',
             title: 'Mo Nong Single Origin',
             subtitle: 'Tasting Notes: Dark Chocolate, Blackberry, Caramel',
             price: '320,000₫',
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         2: {
             category: 'coffee',
             badge: '',
-            image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800',
+            image: 'images/product-2.png',
             title: 'Community Blend',
             subtitle: 'Balanced & Approachable - Perfect for Daily Ritual',
             price: '280,000₫',
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         3: {
             category: 'coffee',
             badge: 'new',
-            image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800',
+            image: 'images/product-3.png',
             title: 'Highland Reserve',
             subtitle: 'Limited Edition - Honey Processed Arabica',
             price: '380,000₫',
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         4: {
             category: 'chocolate',
             badge: 'bestseller',
-            image: 'https://images.unsplash.com/photo-1511381939415-e44015466834?w=800',
+            image: 'images/5-enhanced.png',
             title: 'Highland Cacao 70%',
             subtitle: 'Bean-to-Bar - Deep, Fruity with Coffee Blossom Notes',
             price: '180,000₫',
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         5: {
             category: 'chocolate',
             badge: '',
-            image: 'https://images.unsplash.com/photo-1610450949065-1f2841536c88?w=800',
+            image: 'images/4-enhanced.png',
             title: 'Volcanic Dark 85%',
             subtitle: 'Intense & Complex - For True Cacao Lovers',
             price: '200,000₫',
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         6: {
             category: 'chocolate',
             badge: '',
-            image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800',
+            image: 'images/6-enhanced.png',
             title: 'Creamy Highland Milk',
             subtitle: '45% Cacao - Smooth & Balanced Sweetness',
             price: '160,000₫',
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         7: {
             category: 'gift-set',
             badge: 'new',
-            image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800',
+            image: 'images/gift-set-2-enhanced.png',
             title: 'Highland Essentials',
             subtitle: 'Coffee & Chocolate Pairing - Perfect Introduction',
             price: '480,000₫',
@@ -165,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         8: {
             category: 'gift-set',
             badge: 'bestseller',
-            image: 'https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=800',
+            image: 'images/gift-set-3-enhanced.png',
             title: 'Premium Tasting Collection',
             subtitle: 'Complete Experience - 3 Coffees + 3 Chocolates',
             price: '880,000₫',
@@ -174,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         9: {
             category: 'gift-set',
             badge: '',
-            image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=800',
+            image: 'images/gift-set-4-enhanced.png',
             title: 'Heritage Gift Box',
             subtitle: 'Premium Corporate Gift - Beautifully Packaged',
             price: '1,200,000₫',
@@ -182,16 +183,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Open modal when product card is clicked (but not when clicking Add to Cart button)
+    // Navigate to product detail page when product card is clicked (but not when clicking Add to Cart button)
     productCards.forEach(card => {
         card.addEventListener('click', function(e) {
-            // Don't open modal if clicking the Add to Cart button
+            // Don't navigate if clicking the Add to Cart button
             if (e.target.closest('.btn-add-to-cart')) {
                 return;
             }
             
             const productId = this.getAttribute('data-product-id');
-            openModal(productId);
+            window.location.href = `product-detail.html?id=${productId}`;
         });
     });
     

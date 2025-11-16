@@ -1,0 +1,474 @@
+/* ===================================
+   WHOLESALE & PARTNERSHIPS PAGE
+   =================================== */
+
+/* ===================================
+   PAGE LAYOUT
+   =================================== */
+
+.wholesale-page {
+    min-height: calc(100vh - 80px - 200px);
+    padding: 8rem 0 6rem;
+    background: var(--bg);
+}
+.wholesale-page .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   PAGE HEADER
+   =================================== */
+
+.wholesale-header {
+    text-align: center;
+    margin-bottom: 6rem;
+    padding-top: 2rem;
+}
+
+.wholesale-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+}
+
+.wholesale-subtitle {
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* ===================================
+   BENEFITS SECTION
+   =================================== */
+
+.wholesale-benefits {
+    margin-bottom: 6rem;
+}
+
+.benefits-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin: 0 0 4rem 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.benefit-item {
+    background: var(--bg-light);
+    border: 1px solid var(--border-muted);
+    border-radius: 8px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary);
+}
+
+body.light-mode .benefit-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .benefit-item:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-icon svg {
+    stroke: var(--primary);
+    width: 28px;
+    height: 28px;
+}
+
+.benefit-title {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+}
+
+.benefit-description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===================================
+   FORM SECTION
+   =================================== */
+
+.wholesale-form-section {
+    background: var(--bg-light);
+    border: 1px solid var(--border-muted);
+    border-radius: 12px;
+    padding: 4rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .wholesale-form-section {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+}
+
+.form-section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0 0 3rem 0;
+}
+
+/* ===================================
+   FORM STYLING
+   =================================== */
+
+#wholesale-form {
+    display: block;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.625rem;
+    letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 2px solid var(--border-muted);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(161, 205, 139, 0.1);
+    background: var(--bg-light);
+}
+
+body.light-mode .form-group input:focus,
+body.light-mode .form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(105, 140, 90, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+/* ===================================
+   SUBMIT BUTTON
+   =================================== */
+
+.btn-submit {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: var(--bg-dark);
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--success);
+    border-color: var(--success);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(161, 205, 139, 0.3);
+}
+
+body.light-mode .btn-submit {
+    color: var(--bg);
+}
+
+.btn-submit .btn-loader {
+    display: none;
+}
+
+.btn-submit.loading .btn-text {
+    opacity: 0;
+}
+
+.btn-submit.loading .btn-loader {
+    display: block;
+}
+
+.btn-submit.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   SUCCESS MESSAGE
+   =================================== */
+
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg);
+    border: 2px solid var(--success);
+    border-radius: 12px;
+}
+
+.success-message.show {
+    display: block;
+    animation: fadeInScale 0.5s ease;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    background: transparent;
+    border: 3px solid var(--success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon svg {
+    stroke: var(--success);
+    width: 40px;
+    height: 40px;
+}
+
+.success-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 1rem 0;
+}
+
+.success-text {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0 0 2.5rem 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-message .btn-secondary {
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--border-muted);
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.success-message .btn-secondary:hover {
+    background: var(--bg-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 968px) {
+    .wholesale-page {
+        padding: 6rem 0 4rem;
+    }
+
+    .wholesale-header {
+        margin-bottom: 4rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wholesale-page {
+        padding: 5rem 0 3rem;
+    }
+
+    .wholesale-header {
+        margin-bottom: 3rem;
+        padding-top: 1rem;
+    }
+
+    .wholesale-benefits {
+        margin-bottom: 4rem;
+    }
+
+    .benefits-grid {
+        gap: 1.5rem;
+    }
+
+    .benefit-item {
+        padding: 2rem;
+    }
+
+    .wholesale-form-section {
+        padding: 2.5rem 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .btn-submit {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wholesale-page {
+        padding: 4rem 0 2rem;
+    }
+
+    .wholesale-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .wholesale-benefits {
+        margin-bottom: 3rem;
+    }
+
+    .benefit-item {
+        padding: 1.75rem;
+    }
+
+    .benefit-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1.25rem;
+    }
+
+    .benefit-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .wholesale-form-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .success-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .success-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .success-message {
+        padding: 3rem 1.5rem;
+    }
+}

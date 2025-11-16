@@ -401,6 +401,115 @@
     white-space: nowrap;
 }
 
+/* =====================================================
+   SECRET GIFT STYLES (CHECKOUT)
+   ===================================================== */
+
+.order-item-gift {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.08), 
+        rgba(255, 193, 7, 0.05),
+        rgba(139, 69, 19, 0.06)
+    );
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    animation: giftShimmer 3s ease-in-out infinite;
+}
+
+.order-item-gift::before {
+    content: '🎁';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1.8rem;
+    opacity: 0.15;
+    animation: giftBounce 2s ease-in-out infinite;
+}
+
+.order-item-gift::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: giftShine 3s ease-in-out infinite;
+}
+
+body.light-mode .order-item-gift {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.15), 
+        rgba(255, 193, 7, 0.1),
+        rgba(139, 69, 19, 0.08)
+    );
+    border-color: rgba(255, 193, 7, 0.4);
+}
+
+.order-item-gift .order-item-title {
+    color: #d4a574;
+    font-weight: 700;
+}
+
+body.light-mode .order-item-gift .order-item-title {
+    color: #c49150;
+}
+
+.order-item-gift .gift-note {
+    font-style: italic;
+    font-weight: 600;
+    background: linear-gradient(90deg, rgba(139, 69, 19, 0.8), rgba(255, 193, 7, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.order-item-gift .gift-price {
+    color: #ffc107;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+body.light-mode .order-item-gift .gift-price {
+    color: #f59e0b;
+}
+
+/* Gift Animations (Checkout) */
+@keyframes giftShimmer {
+    0%, 100% {
+        box-shadow: 0 2px 10px rgba(255, 193, 7, 0.15);
+    }
+    50% {
+        box-shadow: 0 2px 15px rgba(255, 193, 7, 0.3);
+    }
+}
+
+@keyframes giftBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+@keyframes giftShine {
+    0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+    }
+    100% {
+        transform: translate(100%, 100%) rotate(45deg);
+    }
+}
+
 /* Summary Divider */
 .summary-divider {
     height: 1px;
@@ -622,4 +731,108 @@
 
 [data-theme="dark"] .btn-complete-order:hover {
     box-shadow: 0 6px 20px rgba(76, 140, 74, 0.5);
+}
+
+/* =====================================================
+   GIFT NOTIFICATION TOAST
+   ===================================================== */
+
+.gift-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.95), 
+        rgba(255, 193, 7, 0.95)
+    );
+    color: #3e2723;
+    padding: 1.25rem 1.75rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 10001;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 350px;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gift-toast.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gift-toast-icon {
+    font-size: 2rem;
+    animation: giftToastBounce 0.6s ease-in-out;
+}
+
+.gift-toast-content {
+    flex: 1;
+}
+
+.gift-toast-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 0.25rem 0;
+    color: #5d4037;
+}
+
+.gift-toast-message {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #6d4c41;
+    font-weight: 500;
+}
+
+body.light-mode .gift-toast {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.98), 
+        rgba(255, 193, 7, 0.98)
+    );
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.5);
+}
+
+@keyframes giftToastBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+    50% {
+        transform: scale(0.9) rotate(10deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+/* Mobile Responsive for Gift Toast */
+@media (max-width: 768px) {
+    .gift-toast {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        padding: 1rem 1.25rem;
+    }
+    
+    .gift-toast-icon {
+        font-size: 1.75rem;
+    }
+    
+    .gift-toast-title {
+        font-size: 0.95rem;
+    }
+    
+    .gift-toast-message {
+        font-size: 0.85rem;
+    }
 }

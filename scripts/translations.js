@@ -10,7 +10,7 @@ const translations = {
         // Navigation
         'nav.brand': 'EJ Farm',
         'nav.story': 'Our Story',
-        'nav.process': 'Our Process',
+        'nav.process': 'Process',
         'nav.shop': 'Shop',
         'nav.blogs': 'Blogs',
         'nav.cta': 'Shop Coffee',
@@ -88,7 +88,7 @@ const translations = {
         'footer.shop.subscriptions': 'Subscriptions',
         'footer.about.title': 'About',
         'footer.about.story': 'Our Story',
-        'footer.about.process': 'Our Process',
+        'footer.about.process': 'Process',
         'footer.about.farmers': 'Our Farmers',
         'footer.about.sustainability': 'Sustainability',
         'footer.contact.title': 'Contact',

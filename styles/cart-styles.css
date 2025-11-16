@@ -1,5 +1,5 @@
 /* ===================================
-   CART PAGE STYLES
+   CART PAGE STYLES - Minimal & Clean
    =================================== */
 
 /* ===================================
@@ -8,8 +8,8 @@
 
 .cart-page {
     min-height: calc(100vh - 80px - 200px);
-    padding: 4rem 0;
-    background: var(--bg-primary);
+    padding: 8rem 0 6rem;
+    background: var(--bg);
 }
 
 .cart-page .container {
@@ -24,16 +24,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 4rem;
+    padding-top: 2rem;
 }
 
 .cart-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--text);
     margin: 0;
 }
 
@@ -41,21 +40,19 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--accent-primary);
+    color: var(--primary);
     font-size: 1rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 6px;
+    border: 2px solid transparent;
 }
 
 .continue-shopping:hover {
-    background: rgba(139, 69, 19, 0.1);
+    border-color: var(--primary);
+    background: var(--bg-light);
     transform: translateX(-4px);
-}
-
-body.light-mode .continue-shopping:hover {
-    background: rgba(139, 69, 19, 0.15);
 }
 
 /* ===================================
@@ -79,33 +76,33 @@ body.light-mode .continue-shopping:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 2rem;
-    background: var(--bg-secondary);
+    padding: 6rem 2rem;
+    background: var(--bg-light);
     border-radius: 12px;
-    border: 2px dashed var(--border-color);
+    border: 2px dashed var(--border-muted);
 }
 
 .empty-cart-icon {
     margin-bottom: 2rem;
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 .empty-cart-icon svg {
-    stroke: var(--text-primary);
+    stroke: var(--text);
 }
 
 .empty-cart h2 {
-    font-family: var(--font-heading);
+    font-family: var(--font-serif);
     font-size: 1.75rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text);
     margin-bottom: 1rem;
 }
 
 .empty-cart p {
     font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
     max-width: 400px;
 }
 
@@ -118,27 +115,29 @@ body.light-mode .continue-shopping:hover {
 }
 
 .cart-items-table {
-    background: var(--bg-secondary);
-    border-radius: 12px;
+    background: var(--bg-light);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-muted);
+}
+
+body.light-mode .cart-items-table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .cart-table-header {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 50px;
     gap: 1rem;
-    padding: 1.25rem 1.5rem;
-    background: rgba(139, 69, 19, 0.1);
+    padding: 1rem 1.5rem;
+    background: var(--bg);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-primary);
-}
-
-body.light-mode .cart-table-header {
-    background: rgba(139, 69, 19, 0.08);
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-muted);
 }
 
 .cart-table-body {
@@ -663,28 +662,81 @@ body.light-mode .promo-banner {
    =================================== */
 
 .cart-item-gift {
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.08), rgba(139, 69, 19, 0.04));
-    border: 2px solid rgba(139, 69, 19, 0.2);
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.08), 
+        rgba(255, 193, 7, 0.05),
+        rgba(139, 69, 19, 0.06)
+    );
+    border: 2px solid rgba(255, 193, 7, 0.3);
     position: relative;
+    overflow: hidden;
+    animation: giftShimmer 3s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
 }
 
 .cart-item-gift::before {
     content: '🎁';
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    opacity: 0.3;
+    top: 15px;
+    right: 15px;
+    font-size: 2.5rem;
+    opacity: 0.15;
+    animation: giftBounce 2s ease-in-out infinite;
+}
+
+.cart-item-gift::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: giftShine 3s ease-in-out infinite;
 }
 
 body.light-mode .cart-item-gift {
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.12), rgba(139, 69, 19, 0.06));
-    border-color: rgba(139, 69, 19, 0.3);
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.15), 
+        rgba(255, 193, 7, 0.1),
+        rgba(139, 69, 19, 0.08)
+    );
+    border-color: rgba(255, 193, 7, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
 }
 
 .cart-item-gift:hover {
-    background: linear-gradient(135deg, rgba(139, 69, 19, 0.12), rgba(139, 69, 19, 0.06));
-    border-color: rgba(139, 69, 19, 0.3);
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.12), 
+        rgba(255, 193, 7, 0.08),
+        rgba(139, 69, 19, 0.08)
+    );
+    border-color: rgba(255, 193, 7, 0.5);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.25);
+    transform: translateY(-2px);
+}
+
+body.light-mode .cart-item-gift:hover {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.2), 
+        rgba(255, 193, 7, 0.15),
+        rgba(139, 69, 19, 0.1)
+    );
+}
+
+.cart-item-gift .item-details h3 {
+    color: #d4a574;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .cart-item-gift .item-details h3 {
+    color: #c49150;
 }
 
 .cart-item-gift-note {
@@ -692,31 +744,191 @@ body.light-mode .cart-item-gift {
     color: var(--accent-primary);
     font-style: italic;
     margin: 0.25rem 0 0 0;
-    font-weight: 500;
+    font-weight: 600;
+    background: linear-gradient(90deg, rgba(139, 69, 19, 0.8), rgba(255, 193, 7, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .cart-item-gift .item-price {
-    color: var(--accent-primary);
+    color: #ffc107;
     font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .cart-item-gift .item-price {
+    color: #f59e0b;
+}
+
+.cart-item-gift .item-total {
+    color: #ffc107;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+body.light-mode .cart-item-gift .item-total {
+    color: #f59e0b;
 }
 
 .cart-item-gift .qty-input {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.1);
     cursor: not-allowed;
     opacity: 0.6;
+    border: 1px solid rgba(255, 193, 7, 0.3);
 }
 
 body.light-mode .cart-item-gift .qty-input {
-    background: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 193, 7, 0.4);
 }
 
 .gift-lock {
-    font-size: 1.25rem;
-    opacity: 0.4;
+    font-size: 1.5rem;
+    opacity: 0.5;
     cursor: not-allowed;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
+    transition: all 0.3s ease;
+}
+
+.gift-lock:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* Gift Animations */
+@keyframes giftShimmer {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.15);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3);
+    }
+}
+
+@keyframes giftBounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.1);
+    }
+}
+
+@keyframes giftShine {
+    0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+    }
+    100% {
+        transform: translate(100%, 100%) rotate(45deg);
+    }
+}
+
+/* ===================================
+   GIFT NOTIFICATION TOAST
+   =================================== */
+
+.gift-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.95), 
+        rgba(255, 193, 7, 0.95)
+    );
+    color: #3e2723;
+    padding: 1.25rem 1.75rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 10001;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 350px;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gift-toast.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gift-toast-icon {
+    font-size: 2rem;
+    animation: giftToastBounce 0.6s ease-in-out;
+}
+
+.gift-toast-content {
+    flex: 1;
+}
+
+.gift-toast-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 0.25rem 0;
+    color: #5d4037;
+}
+
+.gift-toast-message {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #6d4c41;
+    font-weight: 500;
+}
+
+body.light-mode .gift-toast {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.98), 
+        rgba(255, 193, 7, 0.98)
+    );
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.5);
+}
+
+@keyframes giftToastBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+    50% {
+        transform: scale(0.9) rotate(10deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+/* Mobile Responsive for Gift Toast */
+@media (max-width: 768px) {
+    .gift-toast {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        padding: 1rem 1.25rem;
+    }
+    
+    .gift-toast-icon {
+        font-size: 1.75rem;
+    }
+    
+    .gift-toast-title {
+        font-size: 0.95rem;
+    }
+    
+    .gift-toast-message {
+        font-size: 0.85rem;
+    }
 }

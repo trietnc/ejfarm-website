@@ -131,6 +131,7 @@
      */
     const handleAddToCart = (e) => {
         e.preventDefault();
+        e.stopPropagation(); // Prevent card click from firing
         const button = e.currentTarget;
         const productCard = button.closest('.product-card-premium');
 
@@ -154,6 +155,25 @@
         } else {
             showNotification('Failed to add item to cart', 'error');
             console.error('❌ Failed to add product to cart');
+        }
+    };
+
+    /**
+     * Handle product card click - Navigate to product detail page
+     * @param {Event} e - Click event
+     */
+    const handleProductCardClick = (e) => {
+        // Don't navigate if clicking on the Add to Cart button
+        if (e.target.closest('.btn-add-to-cart')) {
+            return;
+        }
+
+        const productCard = e.currentTarget;
+        const productId = productCard.getAttribute('data-product-id');
+        
+        if (productId) {
+            // Navigate to product detail page with product ID
+            window.location.href = `product-detail.html?id=${productId}`;
         }
     };
 
@@ -182,6 +202,13 @@
         // Add event listeners to all Add to Cart buttons
         addToCartButtons.forEach(button => {
             button.addEventListener('click', handleAddToCart);
+        });
+
+        // Add click handlers to product cards for navigation to detail page
+        const productCards = document.querySelectorAll('.product-card-premium');
+        productCards.forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', handleProductCardClick);
         });
 
         // Cart icon is now a proper <a> link - no need to add click listener
